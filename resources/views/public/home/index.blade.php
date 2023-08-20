@@ -109,7 +109,7 @@
                                 <p class="card-text">
                                     Programme de Recherche de Stages et de Bourses
                                 </p>
-                                <a href="" class="btn btn-primary">savoir plus</a>
+                                <a href="{{ route('home.programmes') . '#prbs' }}" class="btn btn-primary">savoir plus</a>
                             </div>
                         </div>
                     </div>
@@ -122,7 +122,7 @@
                                 <p class="card-text">
                                     Programme d'Appui aux Initiatives Agro-Sylvo Pastorales
                                 </p>
-                                <a href="" class="btn btn-primary">savoir plus</a>
+                                <a href="{{ route('home.programmes') . '#pai-sp' }}" class="btn btn-primary">savoir plus</a>
                             </div>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                                         Citoyen dans la Cité
                                     </p>
                                 </div>
-                                <a href="" class="btn btn-primary">savoir plus</a>
+                                <a href="{{ route('home.programmes') . '#pcc' }}" class="btn btn-primary">savoir plus</a>
                             </div>
                         </div>
                     </div>
@@ -152,7 +152,7 @@
                                         Santé pour Tous
                                     </p>
                                 </div>
-                                <a href="" class="btn btn-primary float-bottom">savoir plus</a>
+                                <a href="{{ route('home.programmes') . '#pst' }}" class="btn btn-primary float-bottom">savoir plus</a>
                             </div>
                         </div>
                     </div>

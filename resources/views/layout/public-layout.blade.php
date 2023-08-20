@@ -28,8 +28,8 @@
             </li>
             <li class="nav-item"><a href="{{ route('home.index') . '#partenaires' }}" class="nav-link">Partenaires</a>
             </li>
-            <li class="nav-item"><a href=""
-                    class="nav-link @if (Request::routeIs('home.programme')) active @endif">Programmes</a>
+            <li class="nav-item"><a href="{{ route('home.programmes') }}"
+                    class="nav-link @if (Request::routeIs('home.programmes')) active @endif">Programmes</a>
             </li>
             <li class="nav-item"><a href="{{ route('home.index') . '#contact' }}" class="nav-link">Contact</a></li>
             <li class="nav-item"><a href="{{ route('home.about') }}"
@@ -76,7 +76,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link link-body-emphasis">
+                <a href="{{ route('home.programmes') }}" class="nav-link @if (Request::routeIs('home.programmes')) active @endif link-body-emphasis">
                     Programmes
                 </a>
             </li>
@@ -122,7 +122,7 @@
                         <li class="nav-item mb-2"><a href="{{ route('home.index'). '#partenaires' }}"
                                 class="nav-link p-0 text-body-secondary">Partenairess</a>
                         </li>
-                        <li class="nav-item mb-2"><a href=""
+                        <li class="nav-item mb-2"><a href="{{ route('home.programmes') }}"
                                 class="nav-link p-0 text-body-secondary">Programmes</a>
                         </li>
 
