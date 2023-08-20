@@ -32,7 +32,7 @@
                     class="nav-link @if (Request::routeIs('home.programme')) active @endif">Programmes</a>
             </li>
             <li class="nav-item"><a href="{{ route('home.index') . '#contact' }}" class="nav-link">Contact</a></li>
-            <li class="nav-item"><a href="{{ route('home.index') . '#appros_merite' }}"
+            <li class="nav-item"><a href="{{ route('home.about') }}"
                     class="nav-link @if (Request::routeIs('home.about')) active @endif">A Propos</a></li>
             @auth
                 <li class="nav-item"><a href="{{ route('candidate.index') }}" class="nav-link active">Admin</a></li>
@@ -55,44 +55,44 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a href="{{ route('home.index') }}" class="nav-link @if (Request::routeIs('home.index')) active @endif"
+                <a href="{{ route('home.index') }}" class="nav-link link-body-emphasis @if (Request::routeIs('home.index')) active @endif"
                     aria-current="page">
                     Accueil
                 </a>
             </li>
-            <li>
+            <li class="nav-item">
                 <a href="" class="nav-link link-body-emphasis @if (Request::routeIs('blog.index') or Request::routeIs('blog.show')) active @endif">
                     Blog
                 </a>
             </li>
-            <li>
+            <li class="nav-item">
                 <a href="{{ route('home.index') . '#actualités' }}" class="nav-link link-body-emphasis">
                     Actualités
                 </a>
             </li>
-            <li>
+            <li class="nav-item">
                 <a href="{{ route('home.index') . '#partenaires' }}" class="nav-link link-body-emphasis">
                     Partenaires
                 </a>
             </li>
-            <li>
+            <li class="nav-item">
                 <a href="" class="nav-link link-body-emphasis">
                     Programmes
                 </a>
             </li>
-            <li>
+            <li class="nav-item">
                 <a href="{{ route('home.index') . '#contact' }}" class="nav-link link-body-emphasis">
                     Contact
                 </a>
             </li>
-            <li>
-                <a href="{{ route('home.index') . '#appros_merite' }}"
+            <li class="nav-item">
+                <a href="{{ route('home.about') }}"
                     class="nav-link link-body-emphasis @if (Request::routeIs('home.about')) active @endif">
                     A Propos
                 </a>
             </li>
             @auth
-                <li>
+                <li class="nav-item">
                     <a href="" class="nav-link active">
                         Admin
                     </a>
@@ -129,7 +129,7 @@
                         <li class="nav-item mb-2"><a href="{{ route('home.index'). '#contact' }}"
                                 class="nav-link p-0 text-body-secondary">Contact</a>
                         </li>
-                        <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-body-secondary">A
+                        <li class="nav-item mb-2"><a href="{{ route('home.about') }}" class="nav-link p-0 text-body-secondary">A
                                 Propos</a>
                         </li>
                     </ul>

@@ -161,7 +161,7 @@
         </div>
     </section>
 
-    <section id="actualité" class=" py-3" style="background-color: #4F0904">
+    <section id="actualités" class=" py-3" style="background-color: #4F0904">
         <div class="container">
             <h2 class="text-center text-light  h1 fw-bold mb-3">Actualités</h2>
             <div class="row row-cols-1 row-cols-sm-3 g-4 mb-3">
