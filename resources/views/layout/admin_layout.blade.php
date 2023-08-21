@@ -91,7 +91,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="{{ route('prbs_candidate.index') }}" class="nav-link">
+                            <a href="{{ route('prbs_candidate.index') }}" class="nav-link  @if(Request::routeIs('prbs_candidate.index')) active @endif">
                                 <i class="nav-icon fa fa-graduation-cap" aria-hidden="true"></i>
                                 <p>
                                     Candidats
@@ -105,16 +105,16 @@
                                     Articles
                                 </p>
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
-                            <a href="{{ route('user.index') }}" class="nav-link">
+                            <a href="{{ route('user.index') }}" class="nav-link @if(Request::routeIs('user.index')) active @endif">
                                 <i class="nav-icon fas fa fa-user" aria-hidden="true"></i>
                                 <p>
-                                    Administrateur
+                                    Administrateurs
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ route('mailblox.sent') }}" class="nav-link">
                                 <i class="nav-icon far fa-envelope"></i>
                                 <p>

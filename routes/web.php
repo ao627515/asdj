@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\PrbsCandidateController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Public\BlogController;
 use App\Http\Controllers\Public\HomeController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\PrbsCandidateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,4 @@ Route::get('prbs_candidate/create', [PrbsCandidateController::class, 'create'])-
 Route::get('prbs_candidate/{prbs_candidate}/print', [PrbsCandidateController::class, 'print'])->name('prbs_candidate.print');
 
 Route::resource('prbs_candidate', PrbsCandidateController::class)->except(['edit', 'update', 'create']);
+Route::resource('user', UserController::class);
