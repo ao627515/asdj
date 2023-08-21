@@ -29,7 +29,7 @@
             <li class="nav-item"><a href="{{ route('home.index') . '#partenaires' }}" class="nav-link">Partenaires</a>
             </li>
             <li class="nav-item"><a href="{{ route('home.programmes') }}"
-                    class="nav-link @if (Request::routeIs('home.programmes')) active @endif">Programmes</a>
+                    class="nav-link @if (Request::routeIs('home.programmes') or Request::routeIs('prbs_candidate.create')) active @endif">Programmes</a>
             </li>
             <li class="nav-item"><a href="{{ route('home.index') . '#contact' }}" class="nav-link">Contact</a></li>
             <li class="nav-item"><a href="{{ route('home.about') }}"
@@ -76,7 +76,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('home.programmes') }}" class="nav-link @if (Request::routeIs('home.programmes')) active @endif link-body-emphasis">
+                <a href="{{ route('home.programmes') }}" class="nav-link @if (Request::routeIs('home.programmes') or Request::routeIs('prbs_candidate.create')) active @endif link-body-emphasis">
                     Programmes
                 </a>
             </li>

@@ -37,9 +37,10 @@ return [
         'database' => [
             'driver' => 'database',
             'table' => 'jobs',
-            'queue' => 'default',
+            'queue' => 'emails',
             'retry_after' => 90,
             'after_commit' => false,
+            'max_jobs' => 100
         ],
 
         'beanstalkd' => [

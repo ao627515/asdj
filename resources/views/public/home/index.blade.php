@@ -46,7 +46,7 @@
                     </p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
 
-                        <a href="">
+                        <a href="{{ route('prbs_candidate.create') }}">
                             <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">
                                 Démarrer mon inscription
                             </button>

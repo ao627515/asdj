@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PrbsCandidateController;
 use App\Http\Controllers\Public\BlogController;
 use App\Http\Controllers\Public\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -19,4 +20,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('about', [HomeController::class, 'about'])->name('home.about');
 Route::get('programmes', [HomeController::class, 'programmes'])->name('home.programmes');
 Route::get('blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('prbs_candidate/create', [PrbsCandidateController::class, 'create'])->name('prbs_candidate.create');
+Route::get('prbs_candidate/{prbs_candidate}/print', [PrbsCandidateController::class, 'print'])->name('prbs_candidate.print');
 
+Route::resource('prbs_candidate', PrbsCandidateController::class)->except(['edit', 'update', 'create']);
