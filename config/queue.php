@@ -39,7 +39,7 @@ return [
             'table' => 'jobs',
             'queue' => 'emails',
             'retry_after' => 90,
-            'after_commit' => false,
+            'after_commit' => true,
             'max_jobs' => 100
         ],
 

@@ -4,6 +4,7 @@
 
 @section('content')
 @section('content')
+    <x-alert />
     <section id="heros">
         <div id="carouseHero" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -152,7 +153,8 @@
                                         Santé pour Tous
                                     </p>
                                 </div>
-                                <a href="{{ route('home.programmes') . '#pst' }}" class="btn btn-primary float-bottom">savoir plus</a>
+                                <a href="{{ route('home.programmes') . '#pst' }}"
+                                    class="btn btn-primary float-bottom">savoir plus</a>
                             </div>
                         </div>
                     </div>
@@ -427,7 +429,7 @@
         </div>
     </section>
 
-    <section id="contact" class="py-3" >
+    <section id="contact" class="py-3">
         <div class="container">
             <div class="px-5">
                 <div class="row">
@@ -482,7 +484,7 @@
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <h3 class="text-center mb-3">Formulaire de contact</h3>
-                        <form method="post" action="" class="h-100">
+                        <form method="post" action="{{ route('contact_form.send') }}" class="h-100">
                             @csrf
                             <div class="row gap-4">
                                 <div class="col-12">
@@ -515,7 +517,7 @@
     <section id="news_letter" class="py-3" style="background-color: #4F0904">
         <div class="container">
             <div class="py-5">
-            <h2 class="h1 text-center text-light mb-3">News letter</h2>
+                <h2 class="h1 text-center text-light mb-3">News letter</h2>
                 <p class="text-center text-light lead">
                     Restez informé sur nos dernières actualités et évènements
                 </p>
@@ -526,7 +528,8 @@
                             <x-form.input name="email" placeholder="Email" type="text" required />
                         </div>
                         <div class="col-sm-2 d-flex justify-content-center">
-                            <button type="submit" id="subscribe-button" class="btn btn-primary" style="border: 1px #f8f9fa solid">
+                            <button type="submit" id="subscribe-button" class="btn btn-primary"
+                                style="border: 1px #f8f9fa solid">
                                 <i class="fa fa-rss" style="color: #f8f9fa"></i> Souscrire
                             </button>
                         </div>

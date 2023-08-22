@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Public\BlogController;
 use App\Http\Controllers\Public\HomeController;
 use App\Http\Controllers\Admin\PrbsCandidateController;
+use App\Http\Controllers\Public\ContactFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,4 @@ Route::get('post/{slug}', [PostController::class, 'show'])->name('post.show');
 Route::post('post/{post}/publish', [PostController::class, 'publish'])->name('post.publish');
 Route::post('post/{post}/unpublish', [PostController::class, 'unpublish'])->name('post.unpublish');
 Route::post('post/{post}/featured_image', [PostController::class, 'featured_image'])->name('post.featured_image');
+Route::post('contact_form', [ContactFormController::class, 'sendContactMail'])->name('contact_form.send');
