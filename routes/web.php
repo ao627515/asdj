@@ -73,5 +73,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::post('contact_form', [ContactFormController::class, 'sendContactMail'])->name('contact_form.send');
 
     Route::post('news_letter/subscribe', [NewsLetterController::class, 'subscribe'])->name('news_letter.subscribe');
+    Route::get('news_letter', [NewsLetterController::class, 'index'])->name('news_letter.index');
     Route::get('news_letter/{email}/unsubscribe', [NewsLetterController::class, 'unsubscribe'])->name('news_letter.unsubscribe');
+    Route::delete('news_letter/{email}/destroy', [NewsLetterController::class, 'destroy'])->name('news_letter.destroy');
 });

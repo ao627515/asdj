@@ -6,6 +6,9 @@
 
 @section('content')
     <div class="container">
-        {!! $mail->message !!}
+        {!! $mail->message !!}  <br>
+
+        NB : Vous pouvez vous désinscrire à tout moment en cliquant sur ce lien : <a href="{{ route('news_letter.unsubscribe', $email) }}">Se désinscrire</a>
+
     </div>
 @endsection

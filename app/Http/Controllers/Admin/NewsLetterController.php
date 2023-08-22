@@ -32,4 +32,16 @@ class NewsLetterController extends Controller
 
         return view('admin.news_letter.unsubscribe')->with('success', 'Unsubscribed successfully!');
     }
+
+    public function index () {
+
+
+        return view('admin.news_letter.subscriber', ['subscribers' => NewsLetter::orderBy('created_at', 'desc')->get()]);
+    }
+
+    public function destroy (NewsLetter $email) {
+
+        $email->delete();
+        return back()->with('success', 'Email supprimé');
+    }
 }

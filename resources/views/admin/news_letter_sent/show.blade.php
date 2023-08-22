@@ -31,6 +31,11 @@
                                 <i class="bi bi-envelope-plus"></i> Nouveau mail
                             </a>
                         </li>
+                        <li class="nav-item active">
+                            <a href="{{ route('news_letter.index') }}" class="nav-link">
+                                <i class="bi bi-person-fill-check"></i> Liste des abonnés à la newsletter
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.card-body -->
@@ -124,16 +129,17 @@
             </div>
             <!-- /.modal-content -->
         </div>
-        <!-- /.modal-dialog -->
-    @endsection
+    </div>
+    <!-- /.modal-dialog -->
+@endsection
 
-    @section('script')
-        <script>
-            $(document).ready(function() {
-                $('#confirmBtnDanger').on('click', function() {
-                    // Soumettre le formulaire
-                    $('#formDestroy').submit();
-                });
+@section('script')
+    <script>
+        $(document).ready(function() {
+            $('#confirmBtnDanger').on('click', function() {
+                // Soumettre le formulaire
+                $('#formDestroy').submit();
             });
-        </script>
-    @endsection
+        });
+    </script>
+@endsection

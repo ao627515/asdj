@@ -35,6 +35,11 @@
                                 <i class="bi bi-envelope-plus"></i> Nouveau mail
                             </a>
                         </li>
+                        <li class="nav-item active">
+                            <a href="{{ route('news_letter.index') }}" class="nav-link">
+                                <i class="bi bi-person-fill-check"></i> Liste des abonnés à la newsletter
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.card-body -->
@@ -98,7 +103,7 @@
                                             </td>
                                             </td>
                                             <td class="mailbox-name"><a
-                                                    href="{{ route('news_letter_sent.show', $mail) }}">{{ $mail->user->last_name.' '.$mail->user->first_name }}</a>
+                                                    href="{{ route('news_letter_sent.show', $mail) }}">{{ $mail->user->last_name . ' ' . $mail->user->first_name }}</a>
                                             </td>
                                             <td class="mailbox-subject">{{ $mail->subject }}</td>
                                             <td class="mailbox-date" data-message-time="{{ $mail->created_at }}"></td>
@@ -131,16 +136,16 @@
                         </a>
                         <div class="float-right">
                             {{ $mails->links() }}
-                            </div>
-                            <!-- /.btn-group -->
                         </div>
-                        <!-- /.float-right -->
+                        <!-- /.btn-group -->
                     </div>
+                    <!-- /.float-right -->
                 </div>
             </div>
-            <!-- /.card -->
         </div>
-        <!-- /.col -->
+        <!-- /.card -->
+    </div>
+    <!-- /.col -->
     </div>
 
     <div class="modal fade" id="modal-danger">
@@ -163,60 +168,60 @@
             <!-- /.modal-content -->
         </div>
     </div>
-        <!-- /.modal-dialog -->
-    @endsection
+    <!-- /.modal-dialog -->
+@endsection
 
-    @section('script')
-        <script>
-            $(function() {
-                //Enable check and uncheck all functionality
-                $('.checkbox-toggle').click(function() {
-                    var clicks = $(this).data('clicks')
-                    if (clicks) {
-                        //Uncheck all checkboxes
-                        $('.mailbox-messages input[type=\'checkbox\']').prop('checked', false)
-                        $('.checkbox-toggle .far.fa-check-square').removeClass('fa-check-square').addClass(
-                            'fa-square')
-                    } else {
-                        //Check all checkboxes
-                        $('.mailbox-messages input[type=\'checkbox\']').prop('checked', true)
-                        $('.checkbox-toggle .far.fa-square').removeClass('fa-square').addClass(
-                            'fa-check-square')
-                    }
-                    $(this).data('clicks', !clicks)
-                })
-            })
-        </script>
-        <script>
-            $(document).ready(function() {
-                function formatTimeDifference(timeDifference) {
-                    if (timeDifference < 60) {
-                        return timeDifference + ' mins ago';
-                    } else if (timeDifference < 60 * 24) {
-                        return Math.floor(timeDifference / 60) + ' hours ago';
-                    } else if (timeDifference < 60 * 24 * 30) {
-                        return Math.floor(timeDifference / (60 * 24)) + ' days ago';
-                    } else if (timeDifference < 60 * 24 * 30 * 12) {
-                        return Math.floor(timeDifference / (60 * 24 * 30)) + ' months ago';
-                    } else {
-                        return Math.floor(timeDifference / (60 * 24 * 30 * 12)) + ' years ago';
-                    }
+@section('script')
+    <script>
+        $(function() {
+            //Enable check and uncheck all functionality
+            $('.checkbox-toggle').click(function() {
+                var clicks = $(this).data('clicks')
+                if (clicks) {
+                    //Uncheck all checkboxes
+                    $('.mailbox-messages input[type=\'checkbox\']').prop('checked', false)
+                    $('.checkbox-toggle .far.fa-check-square').removeClass('fa-check-square').addClass(
+                        'fa-square')
+                } else {
+                    //Check all checkboxes
+                    $('.mailbox-messages input[type=\'checkbox\']').prop('checked', true)
+                    $('.checkbox-toggle .far.fa-square').removeClass('fa-square').addClass(
+                        'fa-check-square')
                 }
+                $(this).data('clicks', !clicks)
+            })
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            function formatTimeDifference(timeDifference) {
+                if (timeDifference < 60) {
+                    return timeDifference + ' mins ago';
+                } else if (timeDifference < 60 * 24) {
+                    return Math.floor(timeDifference / 60) + ' hours ago';
+                } else if (timeDifference < 60 * 24 * 30) {
+                    return Math.floor(timeDifference / (60 * 24)) + ' days ago';
+                } else if (timeDifference < 60 * 24 * 30 * 12) {
+                    return Math.floor(timeDifference / (60 * 24 * 30)) + ' months ago';
+                } else {
+                    return Math.floor(timeDifference / (60 * 24 * 30 * 12)) + ' years ago';
+                }
+            }
 
-                $('.mailbox-date').each(function() {
-                    var messageTime = $(this).data('message-time');
-                    var messageDateObj = new Date(messageTime);
-                    var timeDifference = Math.floor((new Date() - messageDateObj) / 1000 / 60);
+            $('.mailbox-date').each(function() {
+                var messageTime = $(this).data('message-time');
+                var messageDateObj = new Date(messageTime);
+                var timeDifference = Math.floor((new Date() - messageDateObj) / 1000 / 60);
 
-                    var formattedTime = formatTimeDifference(timeDifference);
+                var formattedTime = formatTimeDifference(timeDifference);
 
-                    $(this).text(formattedTime);
-                });
-
-                $('#confirmBtnDanger').on('click', function() {
-                    // Soumettre le formulaire
-                    $('#checboxDestry').submit();
-                });
+                $(this).text(formattedTime);
             });
-        </script>
-    @endsection
+
+            $('#confirmBtnDanger').on('click', function() {
+                // Soumettre le formulaire
+                $('#checboxDestry').submit();
+            });
+        });
+    </script>
+@endsection
