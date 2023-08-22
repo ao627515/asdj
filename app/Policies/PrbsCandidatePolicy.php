@@ -13,7 +13,7 @@ class PrbsCandidatePolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,7 +21,7 @@ class PrbsCandidatePolicy
      */
     public function view(User $user, PrbsCandidate $prbsCandidate): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class PrbsCandidatePolicy
      */
     public function create(User $user): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -37,7 +37,7 @@ class PrbsCandidatePolicy
      */
     public function update(User $user, PrbsCandidate $prbsCandidate): bool
     {
-        //
+        return false;
     }
 
     /**
@@ -45,22 +45,22 @@ class PrbsCandidatePolicy
      */
     public function delete(User $user, PrbsCandidate $prbsCandidate): bool
     {
-        //
+        return $user->role === 'Super Administrateur';
     }
 
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, PrbsCandidate $prbsCandidate): bool
-    {
-        //
-    }
+    // /**
+    //  * Determine whether the user can restore the model.
+    //  */
+    // public function restore(User $user, PrbsCandidate $prbsCandidate): bool
+    // {
+    //     //
+    // }
 
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, PrbsCandidate $prbsCandidate): bool
-    {
-        //
-    }
+    // /**
+    //  * Determine whether the user can permanently delete the model.
+    //  */
+    // public function forceDelete(User $user, PrbsCandidate $prbsCandidate): bool
+    // {
+    //     //
+    // }
 }

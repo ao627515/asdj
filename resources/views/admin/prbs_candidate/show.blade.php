@@ -287,17 +287,19 @@
             </div>
         </div>
         <div class="row row-cols-2 align-item-center py-5">
-            <div class="col">
-                <form action="{{ route('prbs_candidate.destroy', $candidate) }}" method="post"
-                    class="col bg-danger rounded-2" id="formDestroy">
-                    @csrf
-                    @method('delete')
-                    <button type="button" class="btn btn-danger w-100" data-toggle="modal" data-target="#modal-danger">
-                        <i class="bi bi-trash3"></i>
-                        Supprimer
-                    </button>
-                </form>
-            </div>
+            @can('delete', $candidate)
+                <div class="col">
+                    <form action="{{ route('prbs_candidate.destroy', $candidate) }}" method="post"
+                        class="col bg-danger rounded-2" id="formDestroy">
+                        @csrf
+                        @method('delete')
+                        <button type="button" class="btn btn-danger w-100" data-toggle="modal" data-target="#modal-danger">
+                            <i class="bi bi-trash3"></i>
+                            Supprimer
+                        </button>
+                    </form>
+                </div>
+            @endcan
             <div class="col">
                 <a href="{{ route('prbs_candidate.print', $candidate) }}" class="btn btn-secondary w-100">
                     <i class="bi bi-printer-fill"></i>

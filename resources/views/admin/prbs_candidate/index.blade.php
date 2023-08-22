@@ -14,7 +14,7 @@
 @section('content')
 
     <div class="container">
-        <x-alert  />
+        <x-alert />
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title w-100 text-center">Liste des candidats au PRBS</h3>
@@ -64,16 +64,19 @@
                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                             </a>
                                         </div>
-                                        <div class="col">
-                                            <form action="{{ route('prbs_candidate.destroy', $candidate) }}" method="post" class="form-action">
-                                                @csrf
-                                                @method('delete')
-                                                <button type="button" class="btn btn-danger w-100 action-btn" data-toggle="modal"
-                                                    data-target="#modal-danger">
-                                                    <i class="bi bi-trash3"></i>
-                                                </button>
-                                            </form>
-                                        </div>
+                                        @can('delete', $candidate)
+                                            <div class="col">
+                                                <form action="{{ route('prbs_candidate.destroy', $candidate) }}" method="post"
+                                                    class="form-action">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="button" class="btn btn-danger w-100 action-btn"
+                                                        data-toggle="modal" data-target="#modal-danger">
+                                                        <i class="bi bi-trash3"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        @endcan
                                     </div>
                                 </td>
 
