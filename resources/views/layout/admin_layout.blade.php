@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png">
     <title>ASDJ | @yield('page')</title>
 
     <!-- Google Font: Source Sans Pro -->
@@ -91,23 +92,23 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="{{ route('prbs_candidate.index') }}" class="nav-link  @if(Request::routeIs('prbs_candidate.index')) active @endif">
+                            <a href="{{ route('prbs_candidate.index') }}" class="nav-link  @if(Request::routeIs('prbs_candidate.index') or Request::routeIs('prbs_candidate.show') or Request::routeIs('prbs_candidate.edit')) active @endif">
                                 <i class="nav-icon fa fa-graduation-cap" aria-hidden="true"></i>
                                 <p>
                                     Candidats
                                 </p>
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a href="{{ route('post.index') }}" class="nav-link">
+                        <li class="nav-item">
+                            <a href="{{ route('post.index') }}" class="nav-link @if(Request::routeIs('post.index') or Request::routeIs('post.show') or Request::routeIs('post.edit') or Request::routeIs('post.create')) active @endif">
                                 <i class="nav-icon bi bi-file-post"></i>
                                 <p>
                                     Articles
                                 </p>
                             </a>
-                        </li> --}}
+                        </li>
                         <li class="nav-item">
-                            <a href="{{ route('user.index') }}" class="nav-link @if(Request::routeIs('user.index')) active @endif">
+                            <a href="{{ route('user.index') }}" class="nav-link @if(Request::routeIs('user.index') or Request::routeIs('user.show') or Request::routeIs('user.edit') or Request::routeIs('user.create')) active @endif">
                                 <i class="nav-icon fas fa fa-user" aria-hidden="true"></i>
                                 <p>
                                     Administrateurs

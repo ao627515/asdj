@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}">
     <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png">
+    @yield('css')
     <title>ASDJ | @yield('title')</title>
 </head>
 

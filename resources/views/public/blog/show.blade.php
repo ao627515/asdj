@@ -1,9 +1,8 @@
 @extends('layout.public-layout')
 
-@section('title', 'Blog')
+@section('title', $post->slug)
 
 @section('css')
-
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <!-- Custom styles for this template -->
@@ -11,34 +10,24 @@
 @endsection
 
 @section('content')
-
-    <main class="container py-3">
-        <div class="row g-5">
+    <div class="container">
+        <div class="row g-5 mt-3 mb-3">
             <div class="col-md-8">
                 <div class="row row-cols-1 g-3">
-                    @forelse ($posts as $post)
-                        @if ($post->has_publish)
-                        <div class="col">
-                            <div class="card">
-                                <img src="{{ $post->imageUrl() }}" class="card-img-top img-fluid" alt="{{ $post->title }}">
-                                <div class="card-body">
-                                    <h3 class="fs-6">{{ $post->title }}</h3>
-                                    <h6 class="fs-6">Publié le {{ $post->dateFormatFr($post->created_at) }}</h6>
-                                    <p class="card-text">{{ $post->description }}</p>
-                                    <a href="{{ route('blog.show', $post->slug) }}" class="card-link">Lire plus</a>
-                                </div>
-                            </div>
+                    <article class="article">
+                        <h1 class="article-title text-center fw-bold ">{{ $post->title }}</h1>
+
+                        <p class="article-date text-center">publié le {{ $post->dateFormatFr($post->published_at) }}</p>
+
+                        <div class="article-image mb-3">
+                            <img src="{{ $post->imageUrl() }}" alt="{{ $post->title }}" class="img-fluid">
                         </div>
-                        @endif
-                    @empty
-                        <div class="d-flex justify-content-center align-item-center">
-                            <p class="lead">
-                                Aucun article publié
-                            </p>
+
+                        <div class="article-content">
+                            {!! $post->content !!} <!-- Affiche le contenu Summernote sans échappement -->
                         </div>
-                    @endforelse
+                    </article>
                 </div>
-                {{ $posts->links() }}
             </div>
 
             <div class="col-md-4">
@@ -67,21 +56,21 @@
                                 </li>
                             @endforeach
                         </ul>
-                    </div>
+                        <div class="p-4">
+                            <h4 class="fst-italic">Archives</h4>
+                            <ol class="list-unstyled mb-0">
+                                <li><a href="{{ route('blog.index') }}">Tout les articles</a></li>
+                                @foreach ($months as $key => $month)
+                                    <li>
+                                        <a href="{{ route('blog.postsMonth', $key) }}">{{ $month . ' ' . $year }}</a>
+                                    </li>
+                                @endforeach
+                            </ol>
 
-                    <div class="p-4">
-                        <h4 class="fst-italic">Archives</h4>
-                        <ol class="list-unstyled mb-0">
-                            <li><a href="{{ route('blog.index') }}">Tout les articles</a></li>
-                            @foreach ($months as $key => $month)
-                                <li>
-                                    <a href="{{ route('blog.postsMonth', $key) }}">{{ $month . ' ' . $year }}</a>
-                                </li>
-                            @endforeach
-                        </ol>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 @endsection
