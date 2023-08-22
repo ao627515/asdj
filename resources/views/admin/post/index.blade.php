@@ -228,9 +228,6 @@
                 });
             });
 
-            // Gestionnaire de clic pour les boutons de confirmation dans les modaux
-
-
         });
     </script>
 @endsection

@@ -56,11 +56,10 @@
                                             </a>
                                         </div>
                                         <div class="col">
-                                            <form action="{{ route('user.destroy', $user) }}" method="post"
-                                                id="formDestroy">
+                                            <form action="{{ route('user.destroy', $user) }}" method="post" class="form-action">
                                                 @csrf
                                                 @method('delete')
-                                                <button type="button" class="btn btn-danger w-100" data-toggle="modal"
+                                                <button type="button" class="btn btn-danger w-100 action-btn" data-toggle="modal"
                                                     data-target="#modal-danger">
                                                     <i class="bi bi-trash3"></i>
                                                 </button>
@@ -133,9 +132,15 @@
                 'ordering': false,
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
-            $('#confirmBtnDanger').on('click', function() {
-                // Soumettre le formulaire
-                $('#formDestroy').submit();
+
+            $('.action-btn').on('click', function() {
+                var form = $(this).closest('.form-action');
+
+                $('#confirmBtnDanger').on('click', function() {
+                    // Soumettre le formulaire
+                    form.submit();
+                });
+
             });
         });
     </script>

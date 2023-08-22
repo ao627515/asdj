@@ -85,7 +85,7 @@
                     <div class="table-responsive mailbox-messages">
                         <table class="table table-hover table-striped">
                             <tbody>
-                                <form action="" method="post" id="checboxDestry">
+                                <form action="{{ route('news_letter_sent.checkbox') }}" method="post" id="checboxDestry">
                                     @csrf
                                     @foreach ($mails as $mail)
                                         <tr>
