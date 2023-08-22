@@ -20,7 +20,7 @@
                 <h3 class="card-title w-100 text-center">Liste des Adminisateurs</h3>
             </div>
             <div class="card-header d-flex justify-content-end bg-white">
-                <a href="{{ route("user.create") }}">
+                <a href="{{ route('user.create') }}">
                     <button class="btn btn-primary">Ajouter</button>
                 </a>
             </div>
@@ -45,26 +45,33 @@
                                 <th>{{ $user->role }}</th>
                                 <th>
                                     <div class="row">
+                                        @can('view', $user)
+                                            <div class="col">
+                                                <a href="{{ route('user.show', $user) }}" class="btn btn-info w-100">
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        @endcan
+                                        @can('update', $user)
+                                            <div class="col">
+                                                <a href="{{ route('user.edit', $user) }}"class="btn btn-primary w-100">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                </a>
+                                            </div>
+                                        @endcan
+                                        @can('delete')
                                         <div class="col">
-                                            <a href="{{ route('user.show', $user) }}" class="btn btn-info w-100">
-                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a href="{{ route('user.edit', $user) }}"class="btn btn-primary w-100">
-                                                <i class="fas fa-pencil-alt"></i>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <form action="{{ route('user.destroy', $user) }}" method="post" class="form-action">
+                                            <form action="{{ route('user.destroy', $user) }}" method="post"
+                                                class="form-action">
                                                 @csrf
                                                 @method('delete')
-                                                <button type="button" class="btn btn-danger w-100 action-btn" data-toggle="modal"
-                                                    data-target="#modal-danger">
+                                                <button type="button" class="btn btn-danger w-100 action-btn"
+                                                    data-toggle="modal" data-target="#modal-danger">
                                                     <i class="bi bi-trash3"></i>
                                                 </button>
                                             </form>
                                         </div>
+                                        @endcan
                                     </div>
                                 </th>
                             </tr>
