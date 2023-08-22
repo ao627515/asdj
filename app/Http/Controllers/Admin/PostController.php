@@ -68,7 +68,7 @@ class PostController extends Controller
             foreach ($images as $key => $img) {
                 $src = $img->getAttribute('src');
                 $data = base64_decode(explode(',', explode(';', $img->getAttribute('src'))[1])[1]);
-                $image_name = "blog/" . $post->slug . '/content/' . time() . $key . '.png';
+                $image_name = "blog/" . $post->id . '/content/' . time() . $key . '.png';
                 Storage::disk('public')->put($image_name, $data);
 
                 $img->removeAttribute('src');
@@ -81,7 +81,7 @@ class PostController extends Controller
         }
 
         // Traitement de l'image de couverture
-        $post->image = $dataValidated['image']->store('blog/' . $post->slug, 'public');
+        $post->image = $dataValidated['image']->store('blog/' . $post->id, 'public');
         $post->save();
 
         return redirect()->route('post.index')->with('success', 'Article publié avec succès.');
@@ -156,7 +156,7 @@ class PostController extends Controller
             if (strpos($img->getAttribute('src'),'data:image/') === 0) {
 
                 $data = base64_decode(explode(',',explode(';',$img->getAttribute('src'))[1])[1]);
-                $image_name = "blog/". $post->slug.'/content/' . time(). $key.'.png';
+                $image_name = "blog/". $post->id.'/content/' . time(). $key.'.png';
                 Storage::disk('public')->put($image_name, $data);
 
                 $img->removeAttribute('src');
@@ -217,7 +217,7 @@ class PostController extends Controller
 
         Storage::disk('public')->delete($post->image);
 
-        $post->image = $data['image']->store('blog/'. $post->slug, 'public');
+        $post->image = $data['image']->store('blog/'. $post->id, 'public');
 
          $post->save();
 
