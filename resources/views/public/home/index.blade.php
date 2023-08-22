@@ -337,13 +337,15 @@
                                     class="profile-picture img-fluid" style="width:500px; max-height: 400px">
                             </div>
                             <div class="col-md-7 py-5">
-                                <div class="d-flex align-item-center">
-                                    <h3 class="mortarboard-title mb-4">
-                                        <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard"
-                                            alt="">
-
-                                        Nos boursiers témoignent
-                                    </h3>
+                                <div class="row mb-3">
+                                    <div class="col-12 col-sm-3 d-flex justify-content-center">
+                                        <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard" alt="asdj témoignage">
+                                    </div>
+                                    <div class="col-12 col-sm-9 d-flex">
+                                        <h3 class="mortarboard-title m-auto d-block">
+                                            Nos boursiers témoignent
+                                        </h3>
+                                    </div>
                                 </div>
                                 <div class="d-flex flex-column justify-content-center h-75">
                                     <p class="lead fw-medium">
@@ -367,12 +369,15 @@
                                     class="profile-picture img-fluid" style="width:500px; max-height: 400px">
                             </div>
                             <div class="col-md-7 py-5">
-                                <div class="d-flex align-item-center">
-                                    <h3 class="mortarboard-title mb-4">
-                                        <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard"
-                                            alt="">
-                                        Nos boursiers témoignent
-                                    </h3>
+                                <div class="row mb-3">
+                                    <div class="col-12 col-sm-3 d-flex justify-content-center">
+                                        <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard" alt="asdj témoignage">
+                                    </div>
+                                    <div class="col-12 col-sm-9 d-flex">
+                                        <h3 class="mortarboard-title m-auto d-block">
+                                            Nos boursiers témoignent
+                                        </h3>
+                                    </div>
                                 </div>
                                 <div class="d-flex flex-column justify-content-center h-75">
                                     <p class="lead fw-medium">
@@ -400,13 +405,15 @@
                                     class="profile-picture img-fluid" style="width:500px; max-height: 400px">
                             </div>
                             <div class="col-md-7 py-5">
-                                <div class="d-flex align-item-center mb-4">
-                                    <h3 class="mortarboard-title">
-                                        <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard"
-                                            alt="">
-
-                                        Nos boursiers témoignent
-                                    </h3>
+                                <div class="row mb-3">
+                                    <div class="col-12 col-sm-3 d-flex justify-content-center">
+                                        <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard" alt="asdj témoignage">
+                                    </div>
+                                    <div class="col-12 col-sm-9 d-flex">
+                                        <h3 class="mortarboard-title m-auto d-block">
+                                            Nos boursiers témoignent
+                                        </h3>
+                                    </div>
                                 </div>
                                 <div class="d-flex flex-column justify-content-center h-75">
                                     <p class="lead fw-medium">

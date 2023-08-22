@@ -145,14 +145,11 @@
                         <li class="nav-item mb-2"><a href="#"
                                 class="nav-link p-0 text-body-secondary">Politique
                                 de confidentialité</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Nous
-                                contacter</a>
-                        </li>
                     </ul>
                 </div>
 
                 <div class="col-md-5 offset-md-1 mb-3">
-                    <form action="" method="">
+                    <form action="{{ route('news_letter.subscribe') }}" method="post">
                         @csrf
                         <h5>Souscrivez à notre newsletter</h5>
                         <p>Restez informé sur nos dernières actualités et évènements</p>

@@ -161,7 +161,7 @@
         <!-- /.content-wrapper -->
 
         <footer class="main-footer">
-            <strong>Copyright &copy; 2023-2024 By ASDJ</strong> All rights
+            <strong>Copyright &copy; 2023-2024 By Association pour la Solidarité et le Développement des Jeunes (ASDJ)</strong> All rights
             reserved.
         </footer>
 
