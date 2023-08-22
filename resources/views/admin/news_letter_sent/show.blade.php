@@ -61,16 +61,6 @@
                                     </button>
                                 </a>
                             @endif
-                            <a href="{{ route('news_letter_sent.destroy', $mail) }}">
-                                <button type="button" class="btn btn-default btn-sm" data-container="body" title="Delete">
-                                    <i class="far fa-trash-alt"></i>
-                                </button>
-                            </a>
-                            <a href="" class="text-decoration-none">
-                                <button type="button" class="btn btn-default btn-sm" title="Print">
-                                    <i class="fas fa-print"></i>
-                                </button>
-                            </a>
                             @if ($next)
                                 <a href="{{ route('news_letter_sent.show', $next) }}">
                                     <button type="button" class="btn btn-default btn-sm" data-container="body"

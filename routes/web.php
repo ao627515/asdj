@@ -64,7 +64,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::resource('user', UserController::class);
     Route::resource('post', PostController::class)->except(['show']);
     Route::resource('news_letter_sent', NewsLetterSentController::class)->except(['edit', 'update']);
-    Route::get('news_letter_sent/{news_letter_sent}/print', [NewsLetterSentController::class, 'print'])->name('news_letter_sent.print');
+    Route::get('news_letter_sent/{mail}/print', [NewsLetterSentController::class, 'print'])->name('news_letter_sent.print');
     Route::post('news_letter_sent/checkbox', [NewsLetterSentController::class, 'checkbox'])->name('news_letter_sent.checkbox');
     Route::get('post/{slug}', [PostController::class, 'show'])->name('post.show');
     Route::post('post/{post}/publish', [PostController::class, 'publish'])->name('post.publish');

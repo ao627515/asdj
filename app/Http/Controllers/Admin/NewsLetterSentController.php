@@ -139,9 +139,9 @@ class NewsLetterSentController extends Controller
         return to_route('news_letter_sent.index')->with('success', 'Articles publié');
     }
 
-    public function print()
+    public function print(NewsLetterSent $mail)
     {
-        //
+        return view('admin.news_letter_sent.print', compact('mail'));
     }
 
     public function checkbox(Request $request)
