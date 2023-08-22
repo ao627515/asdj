@@ -26,7 +26,7 @@ class StoreUserRequest extends FormRequest
             'first_name' => 'required|string|min:1|max:255',
             'email' => 'required|email|unique:users',
             'phone' => 'required|integer|min:8|unique:users',
-            'role' => 'required|string|in:Administrateur,Super Administrateur'
+            'role' => 'nullable|string|in:Administrateur,Super Administrateur'
         ];
     }
 }

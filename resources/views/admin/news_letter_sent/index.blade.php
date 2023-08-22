@@ -98,7 +98,7 @@
                                             </td>
                                             </td>
                                             <td class="mailbox-name"><a
-                                                    href="{{ route('news_letter_sent.show', $mail) }}">Nom Prenom</a>
+                                                    href="{{ route('news_letter_sent.show', $mail) }}">{{ $mail->user->last_name.' '.$mail->user->first_name }}</a>
                                             </td>
                                             <td class="mailbox-subject">{{ $mail->subject }}</td>
                                             <td class="mailbox-date" data-message-time="{{ $mail->created_at }}"></td>

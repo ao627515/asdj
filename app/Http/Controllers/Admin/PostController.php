@@ -36,7 +36,7 @@ class PostController extends Controller
     {
         // Validation des données reçues
         $dataValidated = $request->validate([
-            'title' => ['required', 'string'],
+            'title' => ['required', 'string', 'max:255'],
             'image' => ['required', 'image', 'max:2000'],
             'description' => ['required', 'string', 'max:255'],
             'content' => ['required', 'string'],

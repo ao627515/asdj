@@ -31,15 +31,20 @@
                     <x-form.input name="email" type="email" value="{{ $user->email }}" required/>
                 </div>
 
-                @if (false)
+                @if (auth()->user()->role === 'Super Administrateur')
                     <div class="mb-3">
                         <label for="role">Rôle</label>
-                        <select name="role" id="role" class="form-select" required>
+                        <select name="role" id="role" class="form-select @error('role') is-invalid @enderror" required>
                             <option value="Super Administrateur" @selected($user->role == 'Super Administrateur')>Super Administrateur</option>
                             <option value="Administrateur" @selected($user->role == 'Administrateur')>Administrateur</option>
                         </select>
+                        @error('role')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     </div>
-                @endif
+                @endifs
 
                 <button type="button" class="btn btn-primary w-100 mt-3" data-toggle="modal" data-target="#modal-default">
                     Modifier

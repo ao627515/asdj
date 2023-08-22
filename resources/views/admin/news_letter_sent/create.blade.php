@@ -53,7 +53,7 @@
                 <div class="card-body">
                     <form action="{{ route('news_letter_sent.store') }}" method="post" id="composeForm">
                         @csrf
-                        <input type="hidden" name="user_id" id="user_id" value="99f1c98e-ecbf-418a-85b6-f58632864c60">
+                        <input type="hidden" name="user_id" id="user_id" value="{{ auth()->user()->id }}">
                         <div class="form-group">
                             <input class="form-control @error('subject') is-invalid @enderror" id="subject" name="subject"
                                 placeholder="Subject:" value="{{ old('subject') }}">

@@ -36,7 +36,7 @@
             <li class="nav-item"><a href="{{ route('home.about') }}"
                     class="nav-link @if (Request::routeIs('home.about')) active @endif">A Propos</a></li>
             @auth
-                <li class="nav-item"><a href="{{ route('candidate.index') }}" class="nav-link active">Admin</a></li>
+                <li class="nav-item"><a href="{{ route('prbs_candidate.index') }}" class="nav-link active">Admin</a></li>
             @endauth
         </ul>
     </header>

@@ -68,8 +68,8 @@
                             class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href=""
-                            class="d-block"></a>
+                        <a href="{{ route('user.show', $user = auth()->user()) }}"
+                            class="d-block">{{ $user->last_name . ' ' . $user->first_name }}</a>
                     </div>
                 </div>
                 <div class="user-panel mt-3 pb-2 mb-3 d-flex align-item-center">
@@ -119,7 +119,7 @@
                             <a href="{{ route('news_letter_sent.index') }}" class="nav-link @if(Request::routeIs('news_letter_sent.index') or Request::routeIs('news_letter_sent.show') or Request::routeIs('news_letter_sent.create')) active @endif">
                                 <i class="nav-icon far fa-envelope"></i>
                                 <p>
-                                    Mailbox
+                                    News Letter
                                 </p>
                             </a>
                         </li>

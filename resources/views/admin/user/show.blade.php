@@ -18,7 +18,7 @@
                             <p class="text-muted mb-1">{{ Str::ucfirst($user->role) }}</p>
                             <p class="text-muted mb-4">{{ $user->email }}</p>
                             <div class="d-flex justify-content-center mb-2">
-                                <form action="" method="post">
+                                <form action="{{ route('logout') }}" method="post">
                                     @csrf
                                     <button class="btn">
                                         <i class="fa fa-power-off fa-4x" style="color: #dc3545;" aria-hidden="true"></i>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div class="row px-sm-5">
-                        <form action="" method="post" id="password_reset_form">
+                        <form action="{{ route('password.email.inner', $user) }}" method="post" id="password_reset_form">
                             @csrf
                             <button type="button" class="btn btn-outline-primary" data-toggle="modal"
                                 data-target="#modal-default">
