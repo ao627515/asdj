@@ -17,10 +17,10 @@
             <div class="col-md-8">
                 <div class="row row-cols-1 g-3">
                     @forelse ($posts as $post)
-                        @if ($post->has_publish)
                         <div class="col">
                             <div class="card">
-                                <img src="{{ $post->imageUrl() }}" class="card-img-top img-fluid" alt="{{ $post->title }}">
+                                <img src="{{ $post->imageUrl() }}" class="card-img-top" alt="{{ $post->title }}"
+                                    height="400">
                                 <div class="card-body">
                                     <h3 class="fs-6">{{ $post->title }}</h3>
                                     <h6 class="fs-6">Publié le {{ $post->dateFormatFr($post->created_at) }}</h6>
@@ -29,7 +29,6 @@
                                 </div>
                             </div>
                         </div>
-                        @endif
                     @empty
                         <div class="d-flex justify-content-center align-item-center">
                             <p class="lead">

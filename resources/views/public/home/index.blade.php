@@ -167,20 +167,31 @@
         <div class="container">
             <h2 class="text-center text-light  h1 fw-bold mb-3">Actualités</h2>
             <div class="row row-cols-1 row-cols-sm-3 g-4 mb-3">
-                @for ($i = 0; $i < 3; $i++)
+                @forelse ($recentPosts as $post)
                     <div class="col d-flex justify-content-center">
                         <div class="card" style="width: 18rem;">
-                            <img src="{{ asset('dist/img/asdj/asdj_logo_500_500.jpg') }}" class="card-img-top"
-                                alt="...">
+                            <img src="{{ $post->imageUrl() }}" class="card-img-top" alt="{{ $post->title }}"
+                                height="200">
                             <div class="card-body">
-                                <h5 style="font-size: 0.9rem">Titre : Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit.</h5>
-                                <h6 style="font-size: 0.8rem">Date de publication</h6>
-                                <a href="" class="card-link">Voir plus</a>
+                                <p class="card-text">
+                                    @if (strlen($post->description) > 100)
+                                        {{-- Si la description est plus longue que 100 caractères --}}
+                                        {{ substr($post->description, 0, 100) }}... {{-- Affiche les 100 premiers caractères et ajoute ... --}}
+                                    @else
+                                        {{ $post->description }} {{-- Sinon, affiche la description complète --}}
+                                    @endif
+                                </p>
+                                <a href="{{ route('blog.show', $post) }}" class="card-link">Voir plus</a>
                             </div>
                         </div>
                     </div>
-                @endfor
+                @empty
+                    <div class="d-flex justify-content-center align-item-center">
+                        <p class="lead">
+                            Aucun article publié
+                        </p>
+                    </div>
+                @endforelse
             </div>
             <div class="d-flex justify-content-center align-item-center">
                 <a href="" class="h4 text-light">Voir plus</a>
@@ -521,7 +532,7 @@
                 <p class="text-center text-light lead">
                     Restez informé sur nos dernières actualités et évènements
                 </p>
-                <form id="subscribe" action="" method="post">
+                <form id="subscribe" action="{{ route('news_letter.subscribe') }}" method="post">
                     @csrf
                     <div class="row g-3">
                         <div class="col-sm-10">

@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Mail\PrbsCandidate;
+namespace App\Mail\NewsLetter;
 
-use App\Models\PrbsCandidate;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -10,14 +9,14 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class PrbsCandidateMail extends Mailable implements ShouldQueue
+class UnsubscribeConfirmationMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(public PrbsCandidate $candidate)
+    public function __construct()
     {
         //
     }
@@ -28,9 +27,7 @@ class PrbsCandidateMail extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         return new Envelope(
-            to: $this->candidate->email,
-            replyTo: 'ongasdj@gmail.com',
-            subject: 'Prbs Candidate Mail',
+            subject: 'Unsubscribe Confirmation Mail',
         );
     }
 
@@ -40,7 +37,17 @@ class PrbsCandidateMail extends Mailable implements ShouldQueue
     public function content(): Content
     {
         return new Content(
-            view: 'admin.prbs_candidate.mail',
+            view: 'view.name',
         );
+    }
+
+    /**
+     * Get the attachments for the message.
+     *
+     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
+     */
+    public function attachments(): array
+    {
+        return [];
     }
 }

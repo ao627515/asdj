@@ -48,7 +48,15 @@
                             <tr>
                                 <td>{{ $post->title }}</td>
                                 <td>{{ $post->description }}</td>
-                                <td>{{ $post->published_at }}</td>
+                                <td>
+                                    @if ($post->has_publish)
+                                        {{ $post->published_at }}
+                                    @else
+                                    <p class="text-danger">
+                                        Non publié
+                                    </p>
+                                    @endif
+                                </td>
                                 <td>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-info">Action</button>
@@ -66,30 +74,34 @@
                                                 class="form-action dropdown-item">
                                                 @csrf
                                                 @method('delete')
-                                                <button type="button" class="btn btn-danger action-btn w-100" data-toggle="modal"
-                                                    data-target="#modal-danger">
+                                                <button type="button" class="btn btn-danger action-btn w-100"
+                                                    data-toggle="modal" data-target="#modal-danger">
                                                     <i class="bi bi-trash3"></i>
                                                 </button>
                                             </form>
-                                            <form action="{{ route('post.unpublish', $post) }}" method="post"
-                                                class="form-action dropdown-item">
-                                                @csrf
-                                                <button type="button" class="btn btn-warning action-btn w-100"
-                                                    data-toggle="modal" data-target="#modal-warning">
-                                                    Caché
-                                                </button>
-                                            </form>
+                                            @if ($post->has_publish)
+                                                <form action="{{ route('post.unpublish', $post) }}" method="post"
+                                                    class="form-action dropdown-item">
+                                                    @csrf
+                                                    <button type="button" class="btn btn-warning action-btn w-100"
+                                                        data-toggle="modal" data-target="#modal-warning">
+                                                        Caché
+                                                    </button>
+                                                </form>
+                                            @endif
                                             <a class="dropdown-item" href="{{ route('post.edit', $post) }}">
                                                 <button class="btn btn-primary w-100"><i class="bi bi-pencil"></i></button>
                                             </a>
-                                            <form action="{{ route('post.publish', $post) }}" method="post"
-                                                class="form-action dropdown-item">
-                                                @csrf
-                                                <button type="button" class="btn btn-success action-btn w-100"
-                                                    data-toggle="modal" data-target="#modal-success">
-                                                    Publié
-                                                </button>
-                                            </form>
+                                            @if (!$post->has_publish)
+                                                <form action="{{ route('post.publish', $post) }}" method="post"
+                                                    class="form-action dropdown-item">
+                                                    @csrf
+                                                    <button type="button" class="btn btn-success action-btn w-100"
+                                                        data-toggle="modal" data-target="#modal-success">
+                                                        Publié
+                                                    </button>
+                                                </form>
+                                            @endif
                                         </div>
                                     </div>
                                 </td>

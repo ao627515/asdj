@@ -115,14 +115,14 @@
                                 </p>
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a href="{{ route('mailblox.sent') }}" class="nav-link">
+                        <li class="nav-item">
+                            <a href="{{ route('news_letter_sent.index') }}" class="nav-link @if(Request::routeIs('news_letter_sent.index') or Request::routeIs('news_letter_sent.show') or Request::routeIs('news_letter_sent.create')) active @endif">
                                 <i class="nav-icon far fa-envelope"></i>
                                 <p>
                                     Mailbox
                                 </p>
                             </a>
-                        </li> --}}
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

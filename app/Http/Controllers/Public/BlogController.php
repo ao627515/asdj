@@ -11,7 +11,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->paginate(25);
+        $posts = Post::orderBy('created_at', 'desc')->where('has_publish', "=", 1)->paginate(25);
 
         $recentPosts = Post::recentPosts()->get();
 

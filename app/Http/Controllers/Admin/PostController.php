@@ -196,7 +196,7 @@ class PostController extends Controller
             return back()->with('error', 'Echec, article non publié, Veuillez réessaiyer');
         }
 
-        return to_route('post.index')->with('sucess', 'Articles publié');
+        return to_route('post.index')->with('success', 'Articles publié');
     }
 
     public function unpublish(Post $post)

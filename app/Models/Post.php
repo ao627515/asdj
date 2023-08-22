@@ -39,7 +39,7 @@ class Post extends Model
 
     public function scopeRecentPosts($query, $limit = 3)
     {
-        return $query->orderBy('created_at', 'desc')->take($limit);
+        return $query->orderBy('created_at', 'desc')->where('has_publish', "=", 1)->take($limit);
     }
 
 }
