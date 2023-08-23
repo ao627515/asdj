@@ -16,6 +16,11 @@ use App\Mail\NewsLetter\NewsLetterSentMail;
 
 class NewsLetterSentController extends Controller
 {
+
+    public function __construct()
+    {
+        // $this->authorizeResource(NewsLetterSent::class);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -150,16 +155,13 @@ class NewsLetterSentController extends Controller
             'choices' => ['required', 'array']
         ]);
 
-        foreach ($data as $mail) {
-            // $mail = MessageReceive::find($mailID);
-            $this->delete($mail);
+        foreach ($data['choices'] as $mailId) {
+
+            $mail = NewsLetterSent::findOrFail($mailId);
+
+            $this->destroy($mail);
         }
 
         return back();
-    }
-
-    private function delete(NewsLetterSent $mail)
-    {
-        $mail->delete();
     }
 }

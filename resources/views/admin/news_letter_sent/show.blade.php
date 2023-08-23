@@ -90,9 +90,11 @@
                             <button type="button" class="btn btn-default"><i class="fas fa-reply"></i> Retour</button>
                         </a>
                     </div>
+                    @if (auth()->user()->role === 'Super Administrateur')
                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-danger">
                         <i class="far fa-trash-alt"></i> Delete
                     </button>
+                    @endif
 
                     <a href="{{ route('news_letter_sent.print', $mail) }}" class="text-decoration-none">
                         <button type="button" class="btn btn-default"><i class="fas fa-print"></i> Print</button>

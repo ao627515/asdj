@@ -71,9 +71,14 @@
                         <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="far fa-square"></i>
                         </button>
                         <div class="btn-group">
-                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-danger">
-                                <i class="far fa-trash-alt"></i> Delete
-                            </button>
+                            @if (auth()->user()->role === 'Super Administrateur')
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default" data-toggle="modal"
+                                    data-target="#modal-danger">
+                                    <i class="far fa-trash-alt"></i> Delete
+                                </button>
+                            </div>
+                        @endif
                         </div>
                         <!-- /.btn-group -->
                         <a href="{{ route('news_letter_sent.index') }}">
@@ -123,11 +128,16 @@
                         <button type="button" class="btn btn-default btn-sm checkbox-toggle">
                             <i class="far fa-square"></i>
                         </button>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-danger">
-                                <i class="far fa-trash-alt"></i> Delete
-                            </button>
-                        </div>
+
+                        @if (auth()->user()->role === 'Super Administrateur')
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default" data-toggle="modal"
+                                    data-target="#modal-danger">
+                                    <i class="far fa-trash-alt"></i> Delete
+                                </button>
+                            </div>
+                        @endif
+
                         <!-- /.btn-group -->
                         <a href="{{ route('news_letter_sent.index') }}">
                             <button type="button" class="btn btn-default btn-sm">
@@ -146,7 +156,6 @@
         <!-- /.card -->
     </div>
     <!-- /.col -->
-    </div>
 
     <div class="modal fade" id="modal-danger">
         <div class="modal-dialog">

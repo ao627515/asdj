@@ -14,7 +14,7 @@ class PrbsCandidateController extends Controller
 {
     public function __construct()
     {
-        $this->authorizeResource(PrbsCandidate::class, 'candidate');
+        $this->authorizeResource(PrbsCandidate::class, 'prbs_candidate');
     }
     /**
      * Display a listing of the resource.

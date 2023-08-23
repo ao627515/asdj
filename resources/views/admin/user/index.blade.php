@@ -42,7 +42,13 @@
                                 <th>{{ $user->last_name . ' ' . $user->first_name }}</th>
                                 <th>{{ $user->phone }}</th>
                                 <th>{{ $user->email }}</th>
-                                <th>{{ $user->role }}</th>
+                                <th>
+                                    @if (auth()->user()->role === 'Super Administrateur')
+                                        {{ $user->role }}
+                                    @else
+                                        Administrateur
+                                    @endif
+                                </th>
                                 <th>
                                     <div class="row">
                                         @can('view', $user)
@@ -60,17 +66,17 @@
                                             </div>
                                         @endcan
                                         @can('delete')
-                                        <div class="col">
-                                            <form action="{{ route('user.destroy', $user) }}" method="post"
-                                                class="form-action">
-                                                @csrf
-                                                @method('delete')
-                                                <button type="button" class="btn btn-danger w-100 action-btn"
-                                                    data-toggle="modal" data-target="#modal-danger">
-                                                    <i class="bi bi-trash3"></i>
-                                                </button>
-                                            </form>
-                                        </div>
+                                            <div class="col">
+                                                <form action="{{ route('user.destroy', $user) }}" method="post"
+                                                    class="form-action">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="button" class="btn btn-danger w-100 action-btn"
+                                                        data-toggle="modal" data-target="#modal-danger">
+                                                        <i class="bi bi-trash3"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
                                         @endcan
                                     </div>
                                 </th>
