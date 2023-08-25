@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <div class="px-sm-5 px-2">
-            <h2 class="text-center display-1 mb-5 mt-4 fw-bold">Qui somme nous ?</h2>
+            <h2 class="text-center display-1 mb-5 mt-4 fw-bold">Qui sommes nous ?</h2>
             <p class="lead fw-normal">
                 ** Date de création : 09/98 ** <br> <br>
                 ** Date de reconnaissance : Recep. N° 22/12/2000-587/MATD/SG/DGAT/DLPAP ** <br> <br>

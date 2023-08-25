@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Mail;
 
 class PrbsCandidateController extends Controller
 {
-    public function __construct()
-    {
-        $this->authorizeResource(PrbsCandidate::class, 'prbs_candidate');
-    }
+    // public function __construct()
+    // {
+    //     $this->authorizeResource(PrbsCandidate::class, 'prbs_candidate');
+    // }
     /**
      * Display a listing of the resource.
      */

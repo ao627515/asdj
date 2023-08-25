@@ -35,15 +35,13 @@
                         d'études et des stages.
 
                         Depuis 2010 à ce jour, plus de 18000 étudiants ont bénéficié de l'accompagnement soit à
-                        traver des bourses, soit des stages.
+                        travers des bourses, soit des stages.
 
-                        Pour cette édition encore, l'ASDJ souhaite recevoir des candidatures des étudiants désireux
-                        de
-                        postule à ces bourses.
+                        Pour cette édition encore, l'ASDJ disponibilise encore plus de bourses d'études.
 
-                        Peuvent prendre part à ce programme les étudiants de la Licence 1 jusqu'au master 2 des
+                        Peuvent prendre part à ce programme les étudiants salariés ou non, de la licence 1 jusqu'au master 2 des
                         universités
-                        et instituts privés, salariés comme non salariés.
+                        et instituts privés.
                     </p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
 
@@ -202,7 +200,7 @@
     <section id="apropos" class="py-3">
         <div class="container">
             <div class="px-sm-5 px-2">
-                <h2 class="text-center h1 fw-bold mb-3">Qui somme nous ?</h2>
+                <h2 class="text-center h1 fw-bold mb-3">Qui sommes nous ?</h2>
                 <div class="row featurette p-3">
                     <div class="col-md-5">
                         <img src="{{ asset('dist/img/asdj/asdj_logo_500_500.png') }}" alt="Responsable ASDJ"
@@ -253,68 +251,66 @@
         </div>
     </section>
 
-    <section id="partenaires" class="py-3" style="background-color: #fff">
+    <section id="partenaires" class="py-4" style="background-color: #fff">
         <div class="container">
             <h2 class="text-center h1 mb-3">Nos Partenaires</h2>
             <div id="iconCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="d-flex flex-column align-items-center mb-3">
-                            <img src="{{ asset('dist/img/partenaires/1.jpg') }}" alt="" height="200"
-                                width="200">
-                            <h4 class="mt-3 text-center">Secrétariat Permanent des Organisations non gouvernementales
-                            </h4>
+                    @php $partners = [
+                        [
+                            'image' => 'dist/img/partenaires/6.jpg',
+                            'name' => 'Ecole en Direct'
+                        ],
+                        [
+                            'image' => 'dist/img/partenaires/5.jpg',
+                            'name' => 'Building Capacity Institute'
+                        ],
+                        [
+                            'image' => 'dist/img/partenaires/4.jpg',
+                            'name' => 'FAS-InTECH'
+                        ],
+                        [
+                            'image' => 'dist/img/partenaires/3.jpg',
+                            'name' => 'Association des Municipalités du Burkina Faso - AMBF'
+                        ],
+                        [
+                            'image' => 'dist/img/partenaires/2.jpg',
+                            'name' => 'Ministère de la jeunesse'
+                        ],
+                        [
+                            'image' => 'dist/img/partenaires/1.jpg',
+                            'name' => 'Secrétariat Permanent des Organisations non gouvernementales'
+                        ],
+                    ]; @endphp
+
+
+                    @foreach(array_chunk($partners, 3) as $partnerGroup)
+                        <div class="carousel-item{{ $loop->first ? ' active' : '' }}">
+                            <div class="row">
+                                @foreach($partnerGroup as $partner)
+                                    <div class="col-md-4">
+                                        <div class="d-flex flex-column align-items-center mb-3">
+                                            <img src="{{ asset($partner['image']) }}" alt="" height="200" width="200">
+                                            <h4 class="mt-3 text-center">{{ $partner['name'] }}</h4>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex flex-column align-items-center mb-3">
-                            <img src="{{ asset('dist/img/partenaires/2.jpg') }}" alt="" height="200"
-                                width="200">
-                            <h4 class="mt-3 text-center">Ministère de la jeunesse</h4>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex flex-column align-items-center mb-3">
-                            <img src="{{ asset('dist/img/partenaires/3.jpg') }}" alt="" height="200"
-                                width="200">
-                            <h4 class="mt-3 text-center">Association des Municipalités du Burkina Faso - AMBF</h4>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex flex-column align-items-center mb-3">
-                            <img src="{{ asset('dist/img/partenaires/4.jpg') }}" alt="" height="200"
-                                width="200">
-                            <h4 class="mt-3 text-center">FAS-InTECH</h4>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex flex-column align-items-center mb-3">
-                            <img src="{{ asset('dist/img/partenaires/5.jpg') }}" alt="" height="200"
-                                width="200">
-                            <h4 class="mt-3 text-center">Building Capacity Institute</h4>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex flex-column align-items-center mb-3">
-                            <img src="{{ asset('dist/img/partenaires/6.jpg') }}" alt="" height="200"
-                                width="200">
-                            <h4 class="mt-3 text-center">Ecole en Direct</h4>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#iconCarousel"
-                    data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#iconCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#iconCarousel"
-                    data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#iconCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
         </div>
     </section>
+
 
     <section id="temoignage" class="py-3" style="background-color: #4F0904">
         <div class="container">

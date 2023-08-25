@@ -1,42 +1,49 @@
-body{
+body {
     background-color: #f8f7c0;
 }
 
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 .nav-item .nav-link {
-    color: #4F0904;
-  }
+    color: #4f0904;
+}
 
-  .nav-item .nav-link:hover {
-    border: #4F0904 1px solid;
+.nav-item .nav-link:hover {
+    border: #4f0904 1px solid;
     font-size: 1.2rem;
-  }
+}
 
-  .btn.btn-primary, .nav-item .nav-link.active {
-    background-color: #4F0904;
-    border-color: #4F0904;
+.btn.btn-primary,
+.nav-item .nav-link.active {
+    background-color: #4f0904;
+    border-color: #4f0904;
     color: #f8f9fa;
-  }
-  .btn-primary:hover,
-  .nav-item .nav-link.active:hover{
+}
+.btn-primary:hover,
+.nav-item .nav-link.active:hover {
     background-color: #fe8453;
     border-color: #fe8453;
     color: #f8f9fa;
-  }
+}
 
-  header{
-    border-bottom: 1px #4F0904 solid;
-  }
+header {
+    border-bottom: 1px #4f0904 solid;
+}
 
-  i{
-    color: #4F0904;
-  }
+i {
+    color: #4f0904;
+}
 
-  .carousel-control-next:hover, .carousel-control-prev:hover{
-    background-color: #4F0904;
-  }
+.carousel-control-next:hover,
+.carousel-control-prev:hover {
+    background-color: #4f0904;
+}
 
-  #mySidebar {
+#mySidebar {
     width: 0;
     height: 100%;
     position: fixed;
@@ -52,21 +59,22 @@ h1, h2, h3, h4, h5, h6,
 }
 
 @media (min-width: 0px) {
-    .mortarboard{
+    .mortarboard {
         height: 75px;
         width: 75px;
     }
-    .mortarboard-title{
+    .mortarboard-title {
         font-size: 1.25rem;
     }
 }
 
 @media (min-width: 576px) {
-    .mortarboard{
+    .mortarboard {
         height: 100px;
         width: 100px;
     }
-    .mortarboard-title{
+    .mortarboard-title {
         font-size: 1.75rem;
     }
 }
+

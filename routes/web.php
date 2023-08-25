@@ -32,6 +32,10 @@ Route::get('blog/{month}/month', [BlogController::class, 'postsMonth'])->name('b
 Route::get('blog/post/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 Route::get('prbs_candidate/create', [PrbsCandidateController::class, 'create'])->name('prbs_candidate.create');
+Route::post('news_letter/subscribe', [NewsLetterController::class, 'subscribe'])->name('news_letter.subscribe');
+Route::get('news_letter/{email}/unsubscribe', [NewsLetterController::class, 'unsubscribe'])->name('news_letter.unsubscribe');
+
+
 
 
 Route::middleware('guest')->group(function () {
@@ -72,8 +76,6 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::post('post/{post}/featured_image', [PostController::class, 'featured_image'])->name('post.featured_image');
     Route::post('contact_form', [ContactFormController::class, 'sendContactMail'])->name('contact_form.send');
 
-    Route::post('news_letter/subscribe', [NewsLetterController::class, 'subscribe'])->name('news_letter.subscribe');
     Route::get('news_letter', [NewsLetterController::class, 'index'])->name('news_letter.index');
-    Route::get('news_letter/{email}/unsubscribe', [NewsLetterController::class, 'unsubscribe'])->name('news_letter.unsubscribe');
     Route::delete('news_letter/{email}/destroy', [NewsLetterController::class, 'destroy'])->name('news_letter.destroy');
 });
