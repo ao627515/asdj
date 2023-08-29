@@ -12,7 +12,7 @@ class NewsLetterController extends Controller
     public function subscribe(Request $request)
     {
         $validatedData = $request->validate([
-            'email' => 'required|email|unique:news_letters,email'
+            'subscriber_email' => 'required|email|unique:news_letters,email'
         ]);
 
         $subscriber = NewsLetter::create($validatedData);

@@ -10,7 +10,7 @@
             <div class="carousel-inner">
                 @for ($i = 1; $i < 8; $i++)
                     <div class="carousel-item @if ($i == 1) active @endif ">
-                        <img src="{{ asset('dist/img/carrousel') . '/' . $i . '.jpg' }}" class="d-block w-100" alt="..."
+                        <img src="{{ asset('dist/img/carrousel') . '/' . $i . '.jpg' }}" class="w-100" alt="..."
                             height="500px">
                     </div>
                 @endfor
@@ -184,11 +184,13 @@
                         </div>
                     </div>
                 @empty
-                    <div class="d-flex justify-content-center align-item-center">
-                        <p class="lead">
+                {{-- <div class="col"></div> --}}
+                    <div class="col offset-sm-4">
+                        <p class="lead text-light text-center">
                             Aucun article publié
                         </p>
                     </div>
+
                 @endforelse
             </div>
             <div class="d-flex justify-content-center align-item-center">
@@ -539,7 +541,7 @@
                     @csrf
                     <div class="row g-3">
                         <div class="col-sm-10">
-                            <x-form.input name="email" placeholder="Email" type="text" required />
+                            <x-form.input name="subscriber_email" placeholder="Email" type="text" required />
                         </div>
                         <div class="col-sm-2 d-flex justify-content-center">
                             <button type="submit" id="subscribe-button" class="btn btn-primary"

@@ -94,7 +94,7 @@
             </li>
             @auth
                 <li class="nav-item mb-3">
-                    <a href="" class="nav-link active">
+                    <a href="{{ route('prbs_candidate.index') }}" class="nav-link active">
                         Admin
                     </a>
                 </li>
@@ -156,7 +156,7 @@
 
                         <div class="row g-3">
                             <div class="col-sm-10">
-                                <x-form.input name="email" placeholder="Email" type="text" required />
+                                <x-form.input name="subscriber_email" placeholder="Email" type="text" required />
                             </div>
                             <div class="col-sm-2 d-flex justify-content-center">
                                 <button type="submit" id="subscribe-button" class="btn btn-primary">
