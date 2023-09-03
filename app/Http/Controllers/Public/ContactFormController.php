@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Public;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Jobs\Email\SendContactFormMail;
+use App\Jobs\SendMails;
 
 class ContactFormController extends Controller
 {
@@ -19,7 +20,7 @@ class ContactFormController extends Controller
         ]);
 
 
-        SendContactFormMail::dispatch($data)->onQueue('emails');
+        SendMails::dispatch($data, 'ContactFormMail')->onQueue('emails');
 
 
         return back()->with('success', 'Mail envoyé');

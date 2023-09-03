@@ -7,6 +7,7 @@ use App\Models\PrbsCandidate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PrbsCandidate\StorePrbsCandidateRequest;
 use App\Jobs\Email\SendPrbsCandidateMail;
+use App\Jobs\SendMails;
 use App\Mail\PrbsCandidate\PrbsCandidateMail;
 use Illuminate\Support\Facades\Mail;
 
@@ -91,7 +92,7 @@ class PrbsCandidateController extends Controller
             }
         }
 
-        SendPrbsCandidateMail::dispatch($candidate)->onQueue('emails');
+        SendMails::dispatch($candidate, 'PrbsCandidateMail')->onQueue('emails');
 
         return back()->with('success', 'Inscription réussie');
     }

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use App\Jobs\Email\SendNewsLetterSentMail;
+use App\Jobs\SendMails;
 use App\Mail\NewsLetter\NewsLetterSentMail;
 
 class NewsLetterSentController extends Controller
@@ -85,7 +86,7 @@ class NewsLetterSentController extends Controller
         $emails = $newsletters->pluck('email'); // Extrait les adresses e-mail
 
         foreach ($emails as $email) {
-            SendNewsLetterSentMail::dispatch($email, $mail)->onQueue('emails');
+            SendMails::dispatch($mail, 'NewsLetterSentMail', $email)->onQueue('emails');
         }
 
         return redirect()->route('news_letter_sent.index')->with('success', 'Mail envoyé');

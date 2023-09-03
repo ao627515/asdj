@@ -9,7 +9,7 @@
 @section('content')
     <div class="container py-3">
         <p>
-            De <strong>{{ $data['name'] }}</strong>, <br>
+            De <strong>{{ $data['name'] }}, {{ $data['email'] }}</strong>, <br>
 
             {{ $data['message'] }}
         </p>

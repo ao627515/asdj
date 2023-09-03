@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\NewsLetter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Jobs\Email\SendSubscribeConfirmationMail;
+use App\Jobs\SendMails;
 
 class NewsLetterController extends Controller
 {
@@ -15,10 +15,12 @@ class NewsLetterController extends Controller
             'subscriber_email' => 'required|email|unique:news_letters,email'
         ]);
 
-        $subscriber = NewsLetter::create($validatedData);
+        $subscriber = new NewsLetter();
+        $subscriber->email = $validatedData['subscriber_email'];
+        $subscriber->save();
 
         // Envoyer un mail de confirmation d'abonnement
-        SendSubscribeConfirmationMail::dispatch($validatedData['email'])->onQueue('emails');
+        SendMails::dispatch($subscriber->email,'SubscribeConfirmationMail')->onQueue('emails');
 
         return redirect()->back()->with('success', 'Subscribed successfully!');
     }
