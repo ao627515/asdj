@@ -34,11 +34,11 @@ return [
             'driver' => 'sync',
         ],
 
-        'database' => [
+        'emails' => [
             'driver' => 'database',
             'table' => 'jobs',
             'queue' => 'emails',
-            'retry_after' => 90,
+            'retry_after' => 3600,
             'after_commit' => true,
             'max_jobs' => 100
         ],
