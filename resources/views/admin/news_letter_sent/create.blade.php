@@ -82,7 +82,8 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                     <div class="float-right">
-                        <button type="submit" class="btn btn-primary" id="btnSubmit"><i class="far fa-envelope"></i>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#modal-default"><i class="far fa-envelope"></i>
                             Envoyer</button>
                     </div>
                     <button type="reset" class="btn btn-default"><i class="fas fa-times" id="btnReset"></i>
@@ -94,13 +95,34 @@
         </div>
         <!-- /.col -->
     </div>
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+            <div class="modal-content bg-default">
+                <div class="modal-header">
+                    <h4 class="modal-title">default Modal</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Voullez vous envoyé cet email ?</p>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Non</button>
+                    <button type="button" class="btn btn-outline-primary" id="confirmBtndefault">Oui</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 @endsection
 @section('script')
     <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
     <script src="{{ asset('plugins/summernote/lang/summernote-fr-FR.min.js') }}"></script>
     <script>
         $(document).ready(function() {
-            $('#btnSubmit').on('click', function() {
+            $('#confirmBtndefault').on('click', function() {
                 // Soumettre le formulaire
                 $('#composeForm').submit();
             });
