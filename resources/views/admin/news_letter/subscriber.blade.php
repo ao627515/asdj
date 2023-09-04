@@ -29,7 +29,7 @@
                     <ul class="nav nav-pills flex-column">
                         <li class="nav-item active">
                             <a href="{{ route('news_letter_sent.index') }}" class="nav-link">
-                                <i class="far fa-envelope"></i> Sent
+                                <i class="far fa-envelope"></i> Envoyé
                             </a>
                         </li>
                         <li class="nav-item active">
