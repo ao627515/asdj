@@ -35,7 +35,7 @@ Route::get('prbs_candidate/create', [PrbsCandidateController::class, 'create'])-
 Route::post('news_letter/subscribe', [NewsLetterController::class, 'subscribe'])->name('news_letter.subscribe');
 Route::get('news_letter/{email}/unsubscribe', [NewsLetterController::class, 'unsubscribe'])->name('news_letter.unsubscribe');
 
-
+Route::post('contact_form', [ContactFormController::class, 'sendContactMail'])->name('contact_form.send');
 
 
 Route::middleware('guest')->group(function () {
@@ -74,7 +74,6 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::post('post/{post}/publish', [PostController::class, 'publish'])->name('post.publish');
     Route::post('post/{post}/unpublish', [PostController::class, 'unpublish'])->name('post.unpublish');
     Route::post('post/{post}/featured_image', [PostController::class, 'featured_image'])->name('post.featured_image');
-    Route::post('contact_form', [ContactFormController::class, 'sendContactMail'])->name('contact_form.send');
 
     Route::get('news_letter', [NewsLetterController::class, 'index'])->name('news_letter.index');
     Route::delete('news_letter/{email}/destroy', [NewsLetterController::class, 'destroy'])->name('news_letter.destroy');
