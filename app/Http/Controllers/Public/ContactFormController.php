@@ -23,6 +23,6 @@ class ContactFormController extends Controller
         SendMails::dispatch($data, 'ContactFormMail')->onQueue('emails');
 
 
-        return back()->with('success', 'Mail envoyé');
+        return back()->with('success', 'Votre message a été envoyé avec succès !');
     }
 }

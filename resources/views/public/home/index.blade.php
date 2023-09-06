@@ -3,8 +3,6 @@
 @section('title', 'Accueil')
 
 @section('content')
-@section('content')
-    <x-alert />
     <section id="heros">
         <div id="carouseHero" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -39,7 +37,8 @@
 
                         Pour cette édition encore, l'ASDJ disponibilise encore plus de bourses d'études.
 
-                        Peuvent prendre part à ce programme les étudiants salariés ou non, de la licence 1 jusqu'au master 2 des
+                        Peuvent prendre part à ce programme les étudiants salariés ou non, de la licence 1 jusqu'au master 2
+                        des
                         universités
                         et instituts privés.
                     </p>
@@ -184,13 +183,12 @@
                         </div>
                     </div>
                 @empty
-                {{-- <div class="col"></div> --}}
+                    {{-- <div class="col"></div> --}}
                     <div class="col offset-sm-4">
                         <p class="lead text-light text-center">
                             Aucun article publié
                         </p>
                     </div>
-
                 @endforelse
             </div>
             <div class="d-flex justify-content-center align-item-center">
@@ -258,41 +256,43 @@
             <h2 class="text-center h1 mb-3">Nos Partenaires</h2>
             <div id="iconCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    @php $partners = [
-                        [
-                            'image' => 'dist/img/partenaires/6.jpg',
-                            'name' => 'Ecole en Direct'
-                        ],
-                        [
-                            'image' => 'dist/img/partenaires/5.jpg',
-                            'name' => 'Building Capacity Institute'
-                        ],
-                        [
-                            'image' => 'dist/img/partenaires/4.jpg',
-                            'name' => 'FAS-InTECH'
-                        ],
-                        [
-                            'image' => 'dist/img/partenaires/3.jpg',
-                            'name' => 'Association des Municipalités du Burkina Faso - AMBF'
-                        ],
-                        [
-                            'image' => 'dist/img/partenaires/2.jpg',
-                            'name' => 'Ministère de la jeunesse'
-                        ],
-                        [
-                            'image' => 'dist/img/partenaires/1.jpg',
-                            'name' => 'Secrétariat Permanent des Organisations non gouvernementales'
-                        ],
-                    ]; @endphp
+                    @php
+                        $partners = [
+                            [
+                                'image' => 'dist/img/partenaires/6.jpg',
+                                'name' => 'Ecole en Direct',
+                            ],
+                            [
+                                'image' => 'dist/img/partenaires/5.jpg',
+                                'name' => 'Building Capacity Institute',
+                            ],
+                            [
+                                'image' => 'dist/img/partenaires/4.jpg',
+                                'name' => 'FAS-InTECH',
+                            ],
+                            [
+                                'image' => 'dist/img/partenaires/3.jpg',
+                                'name' => 'Association des Municipalités du Burkina Faso - AMBF',
+                            ],
+                            [
+                                'image' => 'dist/img/partenaires/2.jpg',
+                                'name' => 'Ministère de la jeunesse',
+                            ],
+                            [
+                                'image' => 'dist/img/partenaires/1.jpg',
+                                'name' => 'Secrétariat Permanent des Organisations non gouvernementales',
+                            ],
+                        ];
+                    @endphp
 
-
-                    @foreach(array_chunk($partners, 3) as $partnerGroup)
+                    @foreach (array_chunk($partners, 3) as $partnerGroup)
                         <div class="carousel-item{{ $loop->first ? ' active' : '' }}">
                             <div class="row">
-                                @foreach($partnerGroup as $partner)
+                                @foreach ($partnerGroup as $partner)
                                     <div class="col-md-4">
                                         <div class="d-flex flex-column align-items-center mb-3">
-                                            <img src="{{ asset($partner['image']) }}" alt="" height="200" width="200">
+                                            <img src="{{ asset($partner['image']) }}" alt="" height="200"
+                                                width="200">
                                             <h4 class="mt-3 text-center">{{ $partner['name'] }}</h4>
                                         </div>
                                     </div>
@@ -301,11 +301,13 @@
                         </div>
                     @endforeach
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#iconCarousel" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#iconCarousel"
+                    data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#iconCarousel" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#iconCarousel"
+                    data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
@@ -337,7 +339,8 @@
                             <div class="col-md-7 py-5">
                                 <div class="row mb-3">
                                     <div class="col-12 col-sm-3 d-flex justify-content-center">
-                                        <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard" alt="asdj témoignage">
+                                        <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard"
+                                            alt="asdj témoignage">
                                     </div>
                                     <div class="col-12 col-sm-9 d-flex">
                                         <h3 class="mortarboard-title m-auto d-block">
@@ -369,7 +372,8 @@
                             <div class="col-md-7 py-5">
                                 <div class="row mb-3">
                                     <div class="col-12 col-sm-3 d-flex justify-content-center">
-                                        <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard" alt="asdj témoignage">
+                                        <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard"
+                                            alt="asdj témoignage">
                                     </div>
                                     <div class="col-12 col-sm-9 d-flex">
                                         <h3 class="mortarboard-title m-auto d-block">
@@ -405,7 +409,8 @@
                             <div class="col-md-7 py-5">
                                 <div class="row mb-3">
                                     <div class="col-12 col-sm-3 d-flex justify-content-center">
-                                        <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard" alt="asdj témoignage">
+                                        <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard"
+                                            alt="asdj témoignage">
                                     </div>
                                     <div class="col-12 col-sm-9 d-flex">
                                         <h3 class="mortarboard-title m-auto d-block">
@@ -554,4 +559,31 @@
             </div>
         </div>
     </section>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="bi bi-envelope me-2"></i>
+                <strong class="me-auto">Formulaire de contact</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <!-- Message de la session -->
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('script')
+    <script>
+        const toastLiveExample = document.getElementById('liveToast');
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+        @if(session('success'))
+            // Affichez la toast message si la clé "success" existe
+            toastBootstrap.show();
+
+            // Mettez à jour le contenu de la toast message avec le message de succès
+            document.querySelector('.toast-body').textContent = '{{ session('success') }}';
+        @endif
+    </script>
 @endsection

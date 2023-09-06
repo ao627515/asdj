@@ -22,7 +22,7 @@ class NewsLetterController extends Controller
         // Envoyer un mail de confirmation d'abonnement
         SendMails::dispatch($subscriber->email,'SubscribeConfirmationMail')->onQueue('emails');
 
-        return redirect()->back()->with('success', 'Subscribed successfully!');
+        return redirect()->back()->with('success', 'Subscribed successfully !');
     }
 
     public function unsubscribe(string $email)
@@ -44,6 +44,7 @@ class NewsLetterController extends Controller
     public function destroy (NewsLetter $email) {
 
         $email->delete();
+
         return back()->with('success', 'Email supprimé');
     }
 }
