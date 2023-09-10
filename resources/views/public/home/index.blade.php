@@ -5,22 +5,44 @@
 @section('meta')
     <meta name="description"
         content="Découvrez l'ASDJ, une association engagée pour la solidarité et le développement des jeunes au Burkina Faso. Notre mission est de soutenir la jeunesse dans son épanouissement et son développement.">
-    <meta name="keywords" content="solidarité jeunes, développement jeunes, association Burkina Faso, soutien jeunesse, asdj, ASDJ">
+    <meta name="keywords"
+        content="solidarité jeunes, développement jeunes, association Burkina Faso, soutien jeunesse, asdj, ASDJ">
 @endsection
 
 @section('content')
-    <section id="heros">
-        <div id="carouseHero" class="carousel slide" data-bs-ride="carousel">
+    <section id="hero">
+        <div id="carouselHero" class="carousel slide" data-bs-ride="carousel">
+            <!-- Indicateurs de pagination -->
+            <div class="carousel-indicators">
+                @for ($i = 0; $i < 7; $i++)
+                    <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="{{ $i }}" class=" @if ($i == 0) active @endif bg-danger"></button>
+                @endfor
+            </div>
+
             <div class="carousel-inner">
                 @for ($i = 1; $i < 8; $i++)
-                    <div class="carousel-item @if ($i == 1) active @endif ">
-                        <img src="{{ asset('dist/img/carrousel') . '/' . $i . '.jpg' }}" class="w-100" alt="..."
-                            height="500px">
+                    <div class="carousel-item @if ($i == 1) active @endif">
+                        <img src="{{ asset('dist/img/carrousel') . '/' . $i . '.jpg' }}" class="d-block w-100 h-auto"
+                            alt="Image {{ $i }}">
                     </div>
                 @endfor
             </div>
+
+            <!-- Flèches de navigation gauche et droite -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Précédent</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Suivant</span>
+            </button>
         </div>
+
     </section>
+
 
     <section id="prbs">
         <div class="container">
@@ -128,7 +150,8 @@
                                 <p class="card-text">
                                     Programme d'Appui aux Initiatives Agro-Sylvo Pastorales
                                 </p>
-                                <a href="{{ route('home.programmes') . '#pai-sp' }}" class="btn btn-primary">savoir plus</a>
+                                <a href="{{ route('home.programmes') . '#pai-sp' }}" class="btn btn-primary">savoir
+                                    plus</a>
                             </div>
                         </div>
                     </div>
@@ -314,12 +337,12 @@
                 <button class="carousel-control-prev" type="button" data-bs-target="#iconCarousel"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
+                    <span class="visually-hidden">Précédent</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#iconCarousel"
                     data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
+                    <span class="visually-hidden">Suivant</span>
                 </button>
             </div>
         </div>
@@ -355,7 +378,6 @@
                                             alt="asdj témoignage">
                                     </div>
                                     <div class="col-sm-9">
-
                                         <h3 class="my-sm-5 témoignage-h3">
                                             Nos boursiers témoignent
                                         </h3>
@@ -376,13 +398,13 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="carousel-item">
+                    <div class="carousel-item">
                         <div class="row featurette p-3 bg-light">
                             <div class="col-lg-5 d-flex align-item-center justify-content-center">
-                                    <div>
-                                        <img src="dist/img/temoignages/avatar_gray_400x500.jpg" alt="Responsable ASDJ"
-                                    class="profile-picture img-fluid" style="width:500px; max-height: 400px">
-                                    </div>
+                                <div>
+                                    <img src="dist/img/temoignages/avatar_gray_400x500.jpg" alt="Responsable ASDJ"
+                                        class="profile-picture img-fluid" style="width:500px; max-height: 400px">
+                                </div>
                             </div>
                             <div class="col-lg-7 py-5">
                                 <div class="row mb-3">
@@ -390,8 +412,8 @@
                                         <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard"
                                             alt="asdj témoignage">
                                     </div>
-                                    <div class="col-12 col-sm-9 d-flex">
-                                        <h3 class="mortarboard-title m-auto d-block">
+                                    <div class="col-sm-9 ">
+                                        <h3 class="my-sm-5 témoignage-h3">
                                             Nos boursiers témoignent
                                         </h3>
                                     </div>
@@ -420,17 +442,17 @@
                             <div class="col-lg-5 d-flex align-item-center justify-content-center">
                                 <div>
                                     <img src="dist/img/temoignages/temoignage_3.jpg" alt="Responsable ASDJ"
-                                    class="profile-picture img-fluid" style="width:500px; max-height: 400px">
+                                        class="profile-picture img-fluid" style="width:500px; max-height: 400px">
                                 </div>
                             </div>
                             <div class="col-lg-7 py-5">
                                 <div class="row mb-3">
-                                    <div class="col-12 col-sm-3 d-flex justify-content-center" >
-                                            <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard"
+                                    <div class="col-12 col-sm-3 d-flex justify-content-center">
+                                        <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard"
                                             alt="asdj témoignage">
                                     </div>
-                                    <div class="col-12 col-sm-9 d-flex">
-                                        <h3 class="mortarboard-title m-auto d-block">
+                                    <div class="col-sm-9 ">
+                                        <h3 class="my-sm-5 témoignage-h3">
                                             Nos boursiers témoignent
                                         </h3>
                                     </div>
@@ -450,17 +472,17 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
+                    <span class="visually-hidden">Précédent</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
                     data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
+                    <span class="visually-hidden">Suivant</span>
                 </button>
             </div>
 
