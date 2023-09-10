@@ -1,8 +1,12 @@
 
-body {
+body{
     background-color: #f8f7c0;
     overflow-x: hidden;
 
+}
+
+header {
+    background-color: #f8f7c0;
 }
 
 h1,
@@ -16,8 +20,8 @@ h6,
 }
 
 .nav-item .nav-link:hover {
-    border: #4f0904 1px solid;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    color: #fe8453;
 }
 
 .btn.btn-primary,
@@ -69,6 +73,9 @@ i {
     .mortarboard-title {
         font-size: 1.25rem;
     }
+    .témoignage-h3{
+        text-align: center;
+    }
 }
 
 @media (min-width: 576px) {
@@ -78,6 +85,9 @@ i {
     }
     .mortarboard-title {
         font-size: 1.75rem;
+    }
+    .témoignage-h3{
+        text-align: unset;
     }
 }
 

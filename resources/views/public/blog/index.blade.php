@@ -1,6 +1,12 @@
 @extends('layout.public-layout')
 
-@section('title', 'Blog')
+@section('title', 'Blog - Articles et Actualités')
+
+@section('meta')
+    <meta name="description"
+        content="Explorez le blog de l'ASDJ pour des articles et des actualités sur nos initiatives, nos projets et notre engagement envers la jeunesse au Burkina Faso.">
+    <meta name="keywords" content="blog ASDJ, articles jeunesse, actualités développement, association Burkina Faso, asdj, ASDJ">
+@endsection
 
 @section('css')
 

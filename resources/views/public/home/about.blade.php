@@ -1,6 +1,12 @@
 @extends('layout.public-layout')
 
-@section('title', 'A Propos')
+@section('title', 'À Propos de nous - Notre Histoire et Notre Mission')
+
+@section('meta')
+    <meta name="description"
+        content="Découvrez l'histoire et la mission de l'Association pour la Solidarité et le Développement des Jeunes (ASDJ) au Burkina Faso. Apprenez-en plus sur notre engagement envers la jeunesse burkinabè.">
+    <meta name="keywords" content="ASDJ histoire, mission, développement jeunes, association Burkina Faso, asdj, ASDJ">
+@endsection
 
 @section('content')
     <div class="container">
@@ -60,7 +66,7 @@
             </p>
         </div>
 
-        <div class="row row-cols-1 row-cols-sm-3">
+        <div class="row row-cols-1 row-cols-lg-3">
             <div class="col mb-4 px3">
                 <h3 class="mb-3">Philosophie d’intervention</h3>
                 <p class="lead fw-normal">

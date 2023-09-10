@@ -1,6 +1,13 @@
 @extends('layout.public-layout')
 
-@section('title', 'PRBS Inscrption')
+@section('title', 'Inscription au PRBS')
+
+@section('meta')
+    <meta name="description"
+        content="Inscrivez-vous au Programme de Recherche de Bourses et de Stages (PRBS) de l'ASDJ Burkina Faso. Découvrez les opportunités de bourses et de stages pour les jeunes.">
+    <meta name="keywords" content="inscription PRBS, bourses jeunes, stages jeunes, ASDJ Burkina Faso,  Programme de Recherche de Bourses et de Stages, asdj, ASDJ">
+@endsection
+
 
 @section('content')
     <x-alert></x-alert>

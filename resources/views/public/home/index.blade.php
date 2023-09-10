@@ -2,6 +2,12 @@
 
 @section('title', 'Accueil')
 
+@section('meta')
+    <meta name="description"
+        content="Découvrez l'ASDJ, une association engagée pour la solidarité et le développement des jeunes au Burkina Faso. Notre mission est de soutenir la jeunesse dans son épanouissement et son développement.">
+    <meta name="keywords" content="solidarité jeunes, développement jeunes, association Burkina Faso, soutien jeunesse, asdj, ASDJ">
+@endsection
+
 @section('content')
     <section id="heros">
         <div id="carouseHero" class="carousel slide" data-bs-ride="carousel">
@@ -58,11 +64,13 @@
     <section id="salutation">
         <div class="container">
             <div class="row featurette p-3">
-                <div class="col-md-5">
-                    <img src="{{ asset('dist/img/asdj/1er_responsable_de_ASDJ_400x500.png') }}" alt="Responsable ASDJ"
-                        class="profile-picture img-fluid mb-3" style="height: 500px; width:500px;">
+                <div class="col-lg-5 d-flex align-item-center justify-content-center">
+                    <div class="">
+                        <img src="{{ asset('dist/img/asdj/1er_responsable_de_ASDJ_400x500.png') }}" alt="Responsable ASDJ"
+                            class="mb-3 mb-lg-0">
+                    </div>
                 </div>
-                <div class="col-md-7">
+                <div class="col-lg-7">
                     <h2 class="featurette-heading fw-normal lh-1 text-center fw-bold">Mot de M. Ernest LANKOANDÉ</h2>
                     <h2 class="featurette-heading fw-normal lh-1 text-center">1er Responsable de l'ASDJ</h2>
                     <p class="lead fw-normal">
@@ -97,7 +105,7 @@
         <div class="container">
             <div class="py-3">
                 <h2 class="text-center h1 mb-4">Nos Programmes</h2>
-                <div class="row row-cols-1 row-cols-sm-4 g-4 ">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 ">
                     <div class="col d-flex justify-content-center">
                         <div class="card" style="width: 18rem;">
                             <img src="{{ asset('dist/img/programmes/prbs_250_250.jpg') }}" class="card-img-top"
@@ -202,11 +210,13 @@
             <div class="px-sm-5 px-2">
                 <h2 class="text-center h1 fw-bold mb-3">Qui sommes nous ?</h2>
                 <div class="row featurette p-3">
-                    <div class="col-md-5">
-                        <img src="{{ asset('dist/img/asdj/asdj_logo_500_500.png') }}" alt="Responsable ASDJ"
-                            class="profile-picture img-fluid">
+                    <div class="col-lg-5 d-flex align-item-center justify-content-center">
+                        <div>
+                            <img src="{{ asset('dist/img/asdj/asdj_logo_500_500.png') }}" alt="Responsable ASDJ"
+                                class="img-fluid">
+                        </div>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-lg-7">
                         <p class="lead fw-normal">
                             L'Association pour la Solidarité et le Développement des Jeunes (ASDJ) a été créée en 2000 à
                             Ouagadougou, Burkina-Faso, en tant qu'organisation panafricaine. Elle a réalisé des projets
@@ -332,18 +342,21 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="row featurette p-3 bg-light">
-                            <div class="col-md-5">
-                                <img src="dist/img/temoignages/temoignage_1.jpg" alt="Responsable ASDJ"
-                                    class="profile-picture img-fluid" style="width:500px; max-height: 400px">
+                            <div class="col-lg-5 d-flex align-item-center justify-content-center">
+                                <div>
+                                    <img src="dist/img/temoignages/temoignage_1.jpg" alt="Responsable ASDJ"
+                                        class="profile-picture img-fluid" style="width:500px; max-height: 400px">
+                                </div>
                             </div>
-                            <div class="col-md-7 py-5">
+                            <div class="col-lg-7 py-5">
                                 <div class="row mb-3">
                                     <div class="col-12 col-sm-3 d-flex justify-content-center">
-                                        <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard"
+                                        <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-sm-4 mortarboard"
                                             alt="asdj témoignage">
                                     </div>
-                                    <div class="col-12 col-sm-9 d-flex">
-                                        <h3 class="mortarboard-title m-auto d-block">
+                                    <div class="col-sm-9">
+
+                                        <h3 class="my-sm-5 témoignage-h3">
                                             Nos boursiers témoignent
                                         </h3>
                                     </div>
@@ -363,13 +376,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
+                    {{-- <div class="carousel-item">
                         <div class="row featurette p-3 bg-light">
-                            <div class="col-md-5">
-                                <img src="dist/img/temoignages/avatar_gray_400x500.jpg" alt="Responsable ASDJ"
+                            <div class="col-lg-5 d-flex align-item-center justify-content-center">
+                                    <div>
+                                        <img src="dist/img/temoignages/avatar_gray_400x500.jpg" alt="Responsable ASDJ"
                                     class="profile-picture img-fluid" style="width:500px; max-height: 400px">
+                                    </div>
                             </div>
-                            <div class="col-md-7 py-5">
+                            <div class="col-lg-7 py-5">
                                 <div class="row mb-3">
                                     <div class="col-12 col-sm-3 d-flex justify-content-center">
                                         <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard"
@@ -402,14 +417,16 @@
                     </div>
                     <div class="carousel-item">
                         <div class="row featurette p-3 bg-light">
-                            <div class="col-md-5">
-                                <img src="dist/img/temoignages/temoignage_3.jpg" alt="Responsable ASDJ"
+                            <div class="col-lg-5 d-flex align-item-center justify-content-center">
+                                <div>
+                                    <img src="dist/img/temoignages/temoignage_3.jpg" alt="Responsable ASDJ"
                                     class="profile-picture img-fluid" style="width:500px; max-height: 400px">
+                                </div>
                             </div>
-                            <div class="col-md-7 py-5">
+                            <div class="col-lg-7 py-5">
                                 <div class="row mb-3">
-                                    <div class="col-12 col-sm-3 d-flex justify-content-center">
-                                        <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard"
+                                    <div class="col-12 col-sm-3 d-flex justify-content-center" >
+                                            <img src="{{ asset('dist/svg/mortarboard.svg') }}" class="me-4 mortarboard"
                                             alt="asdj témoignage">
                                     </div>
                                     <div class="col-12 col-sm-9 d-flex">
@@ -433,7 +450,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                     data-bs-slide="prev">
@@ -454,14 +471,14 @@
         <div class="container">
             <div class="px-5">
                 <div class="row">
-                    <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="col-lg-8">
                         <div>
                             <h2 class="text-center">Contact</h2>
                             <p class="lead">
                                 Nous sommes ravis de vous entendre et nous vous répondrons dans les plus brefs délais. Merci
                                 de votre intérêt pour l'ASDJ !</p>
                             </p>
-                            <ul class="clearfix list-unstyled ms-5">
+                            <ul class="clearfix list-unstyled ms-sm-5">
                                 <li>
                                     <p><i class="fa fa-envelope-o"></i> Email: <a
                                             href="mailto:ongasdj@gmail.com">ongasdj@gmail.com</a></p>
@@ -503,7 +520,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12">
+                    <div class="col-lg-4">
                         <h3 class="text-center mb-3">Formulaire de contact</h3>
                         <form method="post" action="{{ route('contact_form.send') }}" class="h-100">
                             @csrf
@@ -578,7 +595,7 @@
     <script>
         const toastLiveExample = document.getElementById('liveToast');
         const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
-        @if(session('success'))
+        @if (session('success'))
             // Affichez la toast message si la clé "success" existe
             toastBootstrap.show();
 

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    @yield('meta')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
@@ -15,33 +16,33 @@
 </head>
 
 <body>
-    <header class="d-none d-lg-flex flex-wrap justify-content-center py-3 px-5">
+    <header class="d-none d-lg-flex flex-wrap justify-content-center py-3 px-5 sticky-top">
         <a href="{{ route('home.index') }}"
-            class="d-flex align-items-center mb-3 ms-5 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <img src="{{ asset('dist/img/asdj/asdj_logo_250_250.png') }}" alt="" height="50" width="50">
-            <span class="fs-4 ms-3 fw-bold">ASDJ</span>
-        </a>
-        <ul class="nav nav-pills">
-            <li class="nav-item"><a href="{{ route('home.index') }}" class="nav-link me-2 @if(Request::routeIs('home.index')) active @endif">Accueil</a></li>
-            <li class="nav-item"><a href="{{ route('blog.index') }}"
-                    class="nav-link me-2 @if (Request::routeIs('blog.index') or Request::routeIs('blog.show')) active @endif">Blog</a></li>
-            <li class="nav-item"><a href="{{ route('home.index') . '#actualités' }}" class="nav-link  me-2">Actualités</a>
-            </li>
-            <li class="nav-item"><a href="{{ route('home.index') . '#partenaires' }}" class="nav-link me-2">Partenaires</a>
-            </li>
-            <li class="nav-item"><a href="{{ route('home.programmes') }}"
-                    class="nav-link me-2 @if (Request::routeIs('home.programmes') or Request::routeIs('prbs_candidate.create')) active @endif">Programmes</a>
-            </li>
-            <li class="nav-item"><a href="{{ route('home.index') . '#contact' }}" class="nav-link me-2">Contact</a></li>
-            <li class="nav-item"><a href="{{ route('home.about') }}"
-                    class="nav-link me-2 @if (Request::routeIs('home.about')) active @endif">A Propos</a></li>
-            @auth
-                <li class="nav-item"><a href="{{ route('prbs_candidate.index') }}" class="nav-link active">Admin</a></li>
-            @endauth
-        </ul>
+        class="d-flex align-items-center mb-3 ms-5 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <img src="{{ asset('dist/img/asdj/asdj_logo_250_250.png') }}" alt="" height="50" width="50">
+        <span class="fs-4 ms-3 fw-bold">ASDJ</span>
+    </a>
+    <ul class="nav nav-pills">
+        <li class="nav-item"><a href="{{ route('home.index') }}" class="nav-link me-2 @if(Request::routeIs('home.index')) active @endif">Accueil</a></li>
+        <li class="nav-item"><a href="{{ route('blog.index') }}"
+                class="nav-link me-2 @if (Request::routeIs('blog.index') or Request::routeIs('blog.show')) active @endif">Blog</a></li>
+        <li class="nav-item"><a href="{{ route('home.index') . '#actualités' }}" class="nav-link  me-2">Actualités</a>
+        </li>
+        <li class="nav-item"><a href="{{ route('home.index') . '#partenaires' }}" class="nav-link me-2">Partenaires</a>
+        </li>
+        <li class="nav-item"><a href="{{ route('home.programmes') }}"
+                class="nav-link me-2 @if (Request::routeIs('home.programmes') or Request::routeIs('prbs_candidate.create')) active @endif">Programmes</a>
+        </li>
+        <li class="nav-item"><a href="{{ route('home.index') . '#contact' }}" class="nav-link me-2">Contact</a></li>
+        <li class="nav-item"><a href="{{ route('home.about') }}"
+                class="nav-link me-2 @if (Request::routeIs('home.about')) active @endif">A Propos</a></li>
+        @auth
+            <li class="nav-item"><a href="{{ route('prbs_candidate.index') }}" class="nav-link active">Admin</a></li>
+        @endauth
+    </ul>
     </header>
 
-    <header class="d-block d-lg-none d-flex justify-content-around align-item-center">
+    <header class="d-block d-lg-none d-flex justify-content-around align-item-center sticky-top" id="mobileHeader">
         <div class="d-flex align-items-center">
             <i class="fa fa-align-justify fa-3x" aria-hidden="true" id="sidebarBtn"></i>
         </div>
@@ -77,7 +78,7 @@
                 </a>
             </li>
             <li class="nav-item mb-3">
-                <a href="{{ route('home.programmes') }}" class="nav-link @if (Request::routeIs('home.programmes') or Request::routeIs('prbs_candidate.create')) active @endif link-body-emphasis">
+                <a href="{{ route('home.programmes') }}" class="nav-link @if (Request::routeIs('home.programmes') or Request::routeIs('prbs_candidate.create')) active @endif">
                     Programmes
                 </a>
             </li>
@@ -108,7 +109,7 @@
 
     <footer class="border border-top py-4">
         <div class="container">
-            <div class="row x">
+            <div class="row">
                 <div class="col-6 col-md-2 mb-3 ">
                     <h5>ASDJ</h5>
                     <ul class="nav flex-column">
@@ -198,22 +199,26 @@
         document.getElementById('sidebarBtn').addEventListener('click', function() {
             document.getElementById('mySidebar').classList.toggle('active');
             document.getElementById('mySidebar').classList.remove('d-none');
+            document.getElementById('mobileHeader').classList.remove('sticky-top');
             document.body.style.overflow = 'hidden'; // Empêche le défilement
         });
 
         document.addEventListener('click', function(event) {
             const sidebar = document.getElementById('mySidebar');
+            const header = document.getElementById('mobileHeader');
 
             if (!event.target.matches('#sidebarBtn') && !event.target.closest('#mySidebar')) {
                 sidebar.classList.remove('active');
                 sidebar.classList.add('d-none'); // Masquer la sidebar
                 document.body.style.overflow = 'auto';
+                header.classList.add('sticky-top');
             }
 
             if (event.target.closest('.nav-link')) {
                 sidebar.classList.remove('active');
                 sidebar.classList.add('d-none'); // Masquer la sidebar
                 document.body.style.overflow = 'auto';
+                header.classList.add('sticky-top');
             }
         });
     </script>
