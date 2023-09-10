@@ -16,7 +16,7 @@
 @section('content')
     <div class="container py-3">
         <x-alert />
-        <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data" id="formCreate">
             @csrf
             <div class="row row-cols-1">
                 <div class="col mb-3">
@@ -67,8 +67,8 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary w-100">
-                Creer
+            <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#modal-default">
+                Créer
             </button>
         </form>
 
@@ -83,11 +83,11 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Voullez vous ?</p>
+                        <p>Voullez vous créer cette article ?</p>
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-outline-light" data-dismiss="modal">Annuler</button>
-                        <button type="button" class="btn btn-outline-light" id="confirmBtnWarning">Enregistré</button>
+                        <button type="button" class="btn btn-outline-primary" id="confirmBtn">Enregistré</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -121,6 +121,13 @@
                 ['insert', ['link', 'picture', 'video', 'hr']],
                 ['view', ['fullscreen', 'codeview', 'help']]
             ]
+        });
+
+        $(document).ready(function() {
+            $('#confirmBtn').on('click', function() {
+                // Soumettre le formulaire
+                $('#formCreate').submit();
+            });
         });
     </script>
 @endsection

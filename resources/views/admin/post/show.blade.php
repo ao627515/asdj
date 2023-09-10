@@ -53,7 +53,7 @@
 
                 <p class="article-date text-center">publié le {{ $post->dateFormatFr($post->published_at) }}</p>
 
-                <div class="article-image mb-3">
+                <div class="article-image mb-3 d-flex justify-content-center">
                     <img src="{{ $post->imageUrl() }}" alt="{{ $post->title }}" class="img-fluid">
                 </div>
 
@@ -99,7 +99,7 @@
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-outline-light" data-dismiss="modal">Non</button>
-                        <button type="button" class="btn btn-outline-light" id="confirmBtnSuccess">Oui</button>
+                        <button type="button" class="btn btn-outline-primary" id="confirmBtnSuccess">Oui</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
